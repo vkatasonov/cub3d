@@ -7,5 +7,5 @@ The project is written in C and utilises the [MLX42 graphic library by Codam](ht
 
 ## Authors
 
-- [Vladimir Katasonov @vkatasonov](https://github.com/vkatasonov)
-- [Luis Romero @lromero-m] (https://github.com/lromero-m)
+- [Vladimir Katasonov (@vkatasonov)](https://github.com/vkatasonov)
+- [Luis Romero (@lromero-m)](https://github.com/lromero-m)
