@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   init_checks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 15:59:55 by vkatason          #+#    #+#             */
-/*   Updated: 2024/04/30 20:18:02 by vkatason         ###   ########.fr       */
+/*   Created: 2024/04/28 11:20:25 by vkatason          #+#    #+#             */
+/*   Updated: 2024/04/30 21:19:54 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cub3D.h"
 
-/**
- * @brief Function that checks if the char is space or not
- * 
- * @param c any char in ASCII table
- * @return true if the char is space and false if it's not
- */
-bool	ft_isspace(char c)
+void	ft_check_argc(int n)
 {
-	return ((c >= 9 && c <= 13) || c == 32);
+	if (n != 2)
+	{
+		perror(RED "Error\n Invalid number of arguments\n" RST);
+		exit(EXIT_FAILURE);
+	}
+	return ;
 }
+

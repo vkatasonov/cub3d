@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   printed_checks.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 15:59:55 by vkatason          #+#    #+#             */
-/*   Updated: 2024/04/30 20:18:02 by vkatason         ###   ########.fr       */
+/*   Created: 2024/04/29 14:35:05 by vkatason          #+#    #+#             */
+/*   Updated: 2024/04/30 21:35:24 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cub3D.h"
 
-/**
- * @brief Function that checks if the char is space or not
- * 
- * @param c any char in ASCII table
- * @return true if the char is space and false if it's not
- */
-bool	ft_isspace(char c)
+void	ft_print_data_content(t_data *data)
 {
-	return ((c >= 9 && c <= 13) || c == 32);
+	int	i;
+
+	i = 0;
+	while (data->content[i])
+	{
+		ft_printf(RED "%s\n" RST, data->content[i]);
+		i++;
+	}
 }
