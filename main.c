@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:49:39 by vkatason          #+#    #+#             */
-/*   Updated: 2024/04/30 21:36:16 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/01 12:55:07 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_leaks(void)
 {
-	system("leaks cub3D");
+	system("leaks -q cub3D");
 }
 
 int	main(int argc, char **argv)

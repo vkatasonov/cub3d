@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 13:12:37 by vkatason          #+#    #+#             */
-/*   Updated: 2024/04/30 21:34:23 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/01 13:42:08 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,10 @@ int	ft_check_and_open(char *file)
 	if (!extension || ft_strcmp(extension, ".cub") != 0)
 	{
 		perror(RED "Error\nInvalid file extension \n" RST);
+		free(filename);
 		exit(EXIT_FAILURE);
 	}
+	free(filename);
 	fd = open(file, O_RDONLY, 0);
 	if (fd < 0)
 	{
@@ -77,6 +79,15 @@ void	ft_empty_file(char *file_name)
 	{
 		perror(RED "Error\nOpening file \n" RST);
 		exit(EXIT_FAILURE);
+	}
+	if (read(fd, buffer, sizeof(buffer)) < 0)
+	{
+		if (errno == EISDIR)
+		{
+			printf(RED "Error\nCannot open a directory\n" RST);
+			close(fd);
+			exit(EXIT_FAILURE);
+		}
 	}
 	while (read(fd, buffer, sizeof(buffer)) > 0)
 	{
