@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:47:37 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/01 13:11:38 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/02 22:30:33 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,13 @@
 typedef struct s_data
 {
 	char	**content;
+	char	*no;
+	char	*so;
+	char	*we;
+	char	*ea;
+	int		f[4];
+	int		c[4];
 }			t_data;
-
 
 /***** FUNCTIONS *****/
 

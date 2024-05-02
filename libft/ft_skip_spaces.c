@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printed_checks.c                                   :+:      :+:    :+:   */
+/*   ft_skip_spaces.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 14:35:05 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/02 15:32:01 by vkatason         ###   ########.fr       */
+/*   Created: 2024/05/02 22:58:16 by vkatason          #+#    #+#             */
+/*   Updated: 2024/05/02 23:00:29 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "libft.h"
 
-void	ft_print_data_content(t_data *data)
+/**
+ * @brief			Function to skip leading white spaces
+ * 					in the string pointed to by `str`
+ * 					and return a pointer to the first 
+ * 					non-white space character.
+ * 
+ * @param str		The string to be checked.
+ * @return char*	A pointer to the first non-white space character.
+ */
+char	*ft_skip_spaces(char *str)
 {
-	int	i;
-
-	i = 0;
-	ft_printf(GREEN U "\n\n*************** File content ***************\n\n" RST);
-	while (data->content[i])
-	{
-		ft_printf("%s\n", data->content[i]);
-		i++;
-	}
+	while (*str == ' ' || *str == '\t')
+		str++;
+	return (str);
 }

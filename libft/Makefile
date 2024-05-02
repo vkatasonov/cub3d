@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mzea-mor <mzea-mor@student.42malaga.com    +#+  +:+       +#+         #
+#    By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/27 12:54:50 by vkatason          #+#    #+#              #
-#    Updated: 2024/04/01 18:49:42 by mzea-mor         ###   ########.fr        #
+#    Updated: 2024/05/02 23:02:02 by vkatason         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC = 	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 		ft_isdigit.c ft_isprint.c ft_isspace.c ft_itoa.c ft_memchr.c ft_memcmp.c ft_memcpy.c \
 		ft_memmove.c ft_memset.c ft_numbase.c ft_printf.c ft_putchar_fd.c \
 		ft_putchar.c ft_putendl_fd.c ft_putnbr_fd.c ft_putnbr.c ft_putptr.c \
-		ft_putstr_fd.c ft_putstr.c ft_split.c ft_strchr.c ft_strcmp.c ft_strdup.c \
+		ft_putstr_fd.c ft_putstr.c ft_skip_spaces.c ft_split.c ft_strchr.c ft_strcmp.c ft_strdup.c \
 		ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c \
 		ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c \
 		ft_toupper.c ft_type.c ft_wdcounter.c get_next_line.c get_next_line_utils.c \
