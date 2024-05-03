@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:47:37 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/02 22:30:33 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/03 15:05:44 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,28 @@
 # define CYAN "\033[1;36m"    /* Bold Cyan */
 # define WHITE "\033[1;37m"   /* Bold White */
 
+/**
+ * @param px 		corresponds to player position on the x axis
+ * @param py 		corresponds to player position on the y axis
+ * @example 		(0,0) corresponds to the upper-left corner of the map
+ * @param dir 		holds the direction the player is facing (y, x)
+ * @example 		North:	[-1, 0]
+ * 					South:	[1, 0]
+ * 					East:	[0, 1]
+ * 					West:	[0, -1]
+*/
+
 typedef struct s_data
 {
 	char	**content;
+	char	**map;
 	char	*no;
 	char	*so;
 	char	*we;
 	char	*ea;
+	double	px;
+	double	py;
+	double	dir[2];
 	int		f[4];
 	int		c[4];
 }			t_data;
