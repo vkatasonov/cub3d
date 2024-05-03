@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cleanup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 13:49:39 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/04 01:54:32 by vkatason         ###   ########.fr       */
+/*   Created: 2024/05/03 23:22:28 by vkatason          #+#    #+#             */
+/*   Updated: 2024/05/04 01:55:16 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-static void	ft_leaks(void)
+void	ft_free_data(t_data *data)
 {
-	system("leaks -q cub3D");
-}
-
-int	main(int argc, char **argv)
-{
-	t_data	data;
-
-	atexit(ft_leaks);
-	ft_memset(&data, 0, sizeof(t_data));
-	ft_check_argc(argc);
-	ft_read_file(argv[1], &data);
-	ft_print_data_content(&data);
-	ft_print_fields(&data);
-	ft_free_data(&data);
-	return (0);
+	if (data->content)
+		ft_charpp_free(data->content);
+	if (data->map)
+		ft_charpp_free(data->map);
+	if (data->no)
+		free(data->no);
+	if (data->so)
+		free(data->so);
+	if (data->we)
+		free(data->we);
+	if (data->ea)
+		free(data->ea);
 }

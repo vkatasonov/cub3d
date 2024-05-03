@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 13:12:37 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/03 20:23:15 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/04 01:46:13 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,7 @@ void	ft_read_file(char *file_name, t_data *data)
 		free(line);
 	}
 	data->content = ft_split(tmp, '\n');
-	//ft_get_data(data);
-	ft_print_data_content(data);
-	ft_print_fields(data);
 	free(tmp);
+	ft_extract_data(data);
 	close(fd);
 }
