@@ -3,7 +3,7 @@ SO textures/imgs/wall2 - 256x256.png
 WE textures/imgs/wall3 - 256x256.png
 EA textures/imgs/wall4 - 256x256.png
 F 175, 143, 133  
-C 153, 204, 255  
+C 153, 204, 255
 
         1111111111111111111111111
         1000000000110000000000001

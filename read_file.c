@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 13:12:37 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/02 22:25:26 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/03 20:23:15 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	ft_read_file(char *file_name, t_data *data)
 	char	*tmp;
 
 	fd = ft_check_and_open(file_name);
-	ft_empty_file(file_name);
 	tmp = ft_calloc(sizeof(char), 1);
 	while (1)
 	{
@@ -54,7 +53,9 @@ void	ft_read_file(char *file_name, t_data *data)
 		free(line);
 	}
 	data->content = ft_split(tmp, '\n');
-	free(tmp);
 	//ft_get_data(data);
+	ft_print_data_content(data);
+	ft_print_fields(data);
+	free(tmp);
 	close(fd);
 }

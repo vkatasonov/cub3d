@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:47:37 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/03 15:05:44 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/03 19:28:10 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,20 @@ typedef struct s_data
 /***** FUNCTIONS *****/
 
 void	ft_check_argc(int n);
+void	ft_read_file(char *file_name, t_data *data);
 int		ft_check_and_open(char *file);
+void	ft_check_dir(char *filename);
 void	ft_empty_file(char *file_name);
 char	*ft_lines_join(char *s1, char *s2);
-void	ft_read_file(char *file_name, t_data *data);
+void	ft_get_data(t_data *data);
+char	*ft_get_field_path(char *str);
+int		ft_check_fields(t_data *data, char *tmp);
+int		ft_fill_field_path(t_data *data, char *str, int i);
+int		ft_fill_colors(t_data *data, char *str, int i);
 
 /***** PRINTING FUNCTIONS *****/
 
 void	ft_print_data_content(t_data *data);
+void	ft_print_fields(t_data *data);
 
 #endif

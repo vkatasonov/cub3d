@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 11:20:25 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/02 21:38:51 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/03 20:19:07 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@
  */
 void	ft_check_argc(int n)
 {
+	if (n < 2)
+	{
+		ft_printf_fd(STDERR_FILENO, RED "No file name provided.\n" RST);
+		ft_printf_fd(STDERR_FILENO,
+			YELLOW "Correct usage:" RST);
+		ft_printf_fd(STDERR_FILENO,
+			" ./cub3D <map.cub>\n");
+		exit(1);
+	}
 	if (n != 2)
 	{
 		ft_printf_fd(STDERR_FILENO,
@@ -30,7 +39,7 @@ void	ft_check_argc(int n)
 			YELLOW "Correct usage:" RST);
 		ft_printf_fd(STDERR_FILENO,
 			" ./cub3D <map.cub>\n");
-		exit(EXIT_FAILURE);
+		exit(1);
 	}
 	return ;
 }
