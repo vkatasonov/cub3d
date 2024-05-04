@@ -6,12 +6,26 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 01:44:06 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/04 01:45:12 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/04 05:04:32 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
+/**
+ * @brief 				Function to set path of N, S, W, or E
+ * 						to data->no, data->so, data->we, or data->ea
+ * 						according to the value.
+ * @note 				It also prints an error message if there 
+ * 						a duplicate path of N, S, W, or E is found.
+ * 	
+ * @param path 			The path to set (data->no, data->so, data->we, 
+ * 						or data->ea)
+ * @param value 		The value to set to path
+ * @param error_msg 	The error message to print if there is a duplicate path
+ * 						of N, S, W, or E
+ * @return int 			1 if there is a duplicate path, 0 otherwise
+ */
 int	ft_set_path(char **path, char *value, char *error_msg)
 {
 	char	*start;
@@ -41,6 +55,15 @@ int	ft_set_path(char **path, char *value, char *error_msg)
 	return (0);
 }
 
+/**
+ * @brief 			Function to find a path of N, S, W, or E
+ * 					in data->content[i] and set it to data->no,
+ * 					data->so, data->we, or data->ea
+ * 
+ * @param data 		The structure that contains main data
+ * @param tmp  		The string that contains data->content[i]
+ * @return int 		1 if there is a duplicate path, 0 otherwise
+ */
 int	ft_check_path(t_data *data, char *tmp)
 {
 	if (ft_strncmp(tmp, "NO", 2) == 0)
@@ -54,6 +77,14 @@ int	ft_check_path(t_data *data, char *tmp)
 	return (0);
 }
 
+/**
+ * @brief           Function to extract path of N, S, W, or E
+ *                  from data->content (saved copy of file content)   
+ * 
+ * @param data      The structure that contains main data
+ * @var i           Index of data->content
+ * @var tmp         Temporary string to store data->content[i]
+ */
 void	ft_extract_path(t_data *data)
 {
 	int		i;
