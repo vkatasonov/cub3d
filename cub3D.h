@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:47:37 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/04 01:21:21 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/07 22:23:58 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,12 @@ int		ft_check_and_open(char *file);
 void	ft_check_dir(char *filename);
 void	ft_empty_file(char *file_name);
 char	*ft_lines_join(char *s1, char *s2);
+void	ft_extract_data(t_data *data);
 void	ft_extract_path(t_data *data);
 int		ft_check_path(t_data *data, char *tmp);
-int		ft_set_path(char **path, char *value, char *error_msg);
-void	ft_extract_data(t_data *data);
+int		ft_set_path(t_data *data, char *tmp, int i);
+char	*ft_get_path_value(char *tmp);
+void	ft_path_not_found(t_data *data);
 
 
 /***** PRINTING FUNCTIONS *****/

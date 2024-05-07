@@ -6,106 +6,143 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 01:44:06 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/04 05:04:32 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/07 22:23:00 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
 /**
- * @brief 				Function to set path of N, S, W, or E
- * 						to data->no, data->so, data->we, or data->ea
- * 						according to the value.
- * @note 				It also prints an error message if there 
- * 						a duplicate path of N, S, W, or E is found.
- * 	
- * @param path 			The path to set (data->no, data->so, data->we, 
- * 						or data->ea)
- * @param value 		The value to set to path
- * @param error_msg 	The error message to print if there is a duplicate path
- * 						of N, S, W, or E
- * @return int 			1 if there is a duplicate path, 0 otherwise
+ * @brief 			Function to get value of NSWE path
+ * 					from the line read from the file
+ * 					to the data->content array.
+ * 					Example: NO /path_to_texture - 256x256.png
+ * 					Will return "/path_to_texture - 256x256.png"
+ * 
+ * @param tmp 		pointer to the line read from the file
+ * @return char*	returns the path value
  */
-int	ft_set_path(char **path, char *value, char *error_msg)
+char	*ft_get_path_value(char *tmp)
 {
-	char	*start;
-	char	*end;
-	int		length;
+	char	*path;
 
-	if (*path)
-	{
-		ft_printf_fd(STDERR_FILENO,
-			RED "Error\nDuplicate %s path\n", error_msg);
-		return (1);
-	}
-	start = ft_strchr(value, ' ');
-	if (start)
-	{
-		start++;
-		end = ft_strchr(start, ' ');
-		if (end)
-			length = end - start;
-		else
-			length = ft_strlen(start);
-		*path = ft_calloc(length + 1, sizeof(char));
-		ft_strncpy(*path, start, length);
-	}
-	else
-		*path = ft_strdup(value);
-	return (0);
+	tmp += 2;
+	tmp = ft_skip_spaces(tmp);
+	path = ft_strtrim(tmp, "\t \n");
+	return (path);
 }
 
 /**
- * @brief 			Function to find a path of N, S, W, or E
- * 					in data->content[i] and set it to data->no,
- * 					data->so, data->we, or data->ea
+ * @brief 			Function to set the path value to 
+ * 					the data struct. It checks if the path 
+ * 					is already set and is it's a case
+ * 					it returns 1, otherwise it sets the path
+ * 					value to the data struct.
  * 
- * @param data 		The structure that contains main data
- * @param tmp  		The string that contains data->content[i]
- * @return int 		1 if there is a duplicate path, 0 otherwise
+ * @param data		pointer to the data struct
+ * @param tmp		pointer to the line read from the 
+ * 					file to the data->content array
+ * @param i			1 for NO, 2 for SO, 3 for WE, 4 for EA
+ * @return int		0 if the path is set, 1 if the path is already set
+ */
+int	ft_set_path(t_data *data, char *tmp, int i)
+{
+	if (i == 1 && !data->no)
+		return (data->no = ft_get_path_value(tmp), 0);
+	else if (i == 2 && !data->so)
+		return (data->so = ft_get_path_value(tmp), 0);
+	else if (i == 3 && !data->we)
+		return (data->we = ft_get_path_value(tmp), 0);
+	else if (i == 4 && !data->ea)
+		return (data->ea = ft_get_path_value(tmp), 0);
+	return (1);
+}
+
+/**
+ * @brief 			Check existense of the path in content
+ * 					read from the file. It compares first symbols
+ * 					of the line with NO, SO, WE, EA and if it's
+ * 					true it calls ft_set_path function to set the path.
+ * 
+ * @param data 		pointer to the main data struct
+ * @param tmp 		pointer to the line read from the file
+ * @return int 		1 if the path is already set, 0 otherwise or in case if
+ * 					the line is empty (first symbol is '\n')
  */
 int	ft_check_path(t_data *data, char *tmp)
 {
-	if (ft_strncmp(tmp, "NO", 2) == 0)
-		return (ft_set_path(&data->no, tmp + 2, "NO"));
-	else if (ft_strncmp(tmp, "SO", 2) == 0)
-		return (ft_set_path(&data->so, tmp + 2, "SO"));
-	else if (ft_strncmp(tmp, "WE", 2) == 0)
-		return (ft_set_path(&data->we, tmp + 2, "WE"));
-	else if (ft_strncmp(tmp, "EA", 2) == 0)
-		return (ft_set_path(&data->ea, tmp + 2, "EA"));
+	if (!ft_strncmp(tmp, "NO ", 3))
+		return (ft_set_path(data, tmp, 1));
+	else if (!ft_strncmp(tmp, "SO ", 3))
+		return (ft_set_path(data, tmp, 2));
+	else if (!ft_strncmp(tmp, "WE ", 3))
+		return (ft_set_path(data, tmp, 3));
+	else if (!ft_strncmp(tmp, "EA ", 3))
+		return (ft_set_path(data, tmp, 4));
+	else if (tmp[0] == '\n')
+		return (0);
 	return (0);
 }
 
 /**
- * @brief           Function to extract path of N, S, W, or E
- *                  from data->content (saved copy of file content)   
+ * @brief 			Function to extract path of textures 
+ * 					from the content stored in the data struct
+ * 					and read from the file. It iterates over the
+ * 					content array and checks if the line starts with
+ * 					NO, SO, WE, EA. If it's true it calls ft_check_path
+ * 					function to check if the path is already set.
+ * 					Loop breaks if the line is empty or if the new line 
+ * 					starts symbols different from N, S, W, E. It's made
+ * 					to avoid reading the rest of the map, but to check
+ * 					if we have more than one path for each texture. 
  * 
- * @param data      The structure that contains main data
- * @var i           Index of data->content
- * @var tmp         Temporary string to store data->content[i]
+ * @param data 
  */
 void	ft_extract_path(t_data *data)
 {
-	int		i;
 	char	*tmp;
+	int		i;
 
 	i = 0;
-	tmp = NULL;
-	while (data->content[i]
-		&& (!data->no || !data->so
-			|| !data->we || !data->ea))
+	while (data->content[i])
 	{
-		if (data->content[i] == 0)
-			break ;
 		tmp = ft_strdup(data->content[i]);
+		if (tmp == 0)
+			break ;
 		tmp = ft_skip_spaces(tmp);
+		if (!ft_strchr("NSWE\n", *tmp))
+		{
+			free(tmp);
+			break ;
+		}	
 		if (ft_strchr("NSWE\n", *tmp) && ft_check_path(data, tmp))
-			exit(1);
+			exit(ft_printf_fd(STDERR_FILENO,
+					RED "Error\nDuplicated path: %s\n", tmp));
 		else if (!ft_strchr("NSWE\n", *tmp))
 			exit(ft_printf_fd(STDERR_FILENO,
-					RED "Error\nInvalid or missing field (NSWE) in map\n"));
+					RED "Error\nIncorrect map field: %s\n", tmp));
 		i++;
 		free(tmp);
 	}
+	ft_path_not_found(data);
+}
+
+/**
+ * @brief 			Function to check if the path is not found
+ * 					in the content read from the file. If the path
+ * 					is not found it exits the program with the error
+ * 					message.
+ * 
+ * @param data		pointer to the main data struct
+ */
+void	ft_path_not_found(t_data *data)
+{
+	if (!data->no)
+		exit(ft_printf_fd(STDERR_FILENO, RED "Error\nNO path not found\n"));
+	if (!data->so)
+		exit(ft_printf_fd(STDERR_FILENO, RED "Error\nSO path not found\n"));
+	if (!data->we)
+		exit(ft_printf_fd(STDERR_FILENO, RED "Error\nWE path not found\n"));
+	if (!data->ea)
+		exit(ft_printf_fd(STDERR_FILENO, RED "Error\nEA path not found\n"));
 }

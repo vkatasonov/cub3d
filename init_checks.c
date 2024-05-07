@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 11:20:25 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/03 20:19:07 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/07 21:30:50 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void	ft_check_dir(char *filename)
 			ft_printf_fd(STDERR_FILENO,
 				RED "Error\nCannot open directory\n" RST);
 			ft_printf_fd(STDERR_FILENO,
-				YELLOW "File provided:" RST);
+				YELLOW "Path provided:" RST);
 			ft_printf_fd(STDERR_FILENO, " %s\n", filename);
 			close(fd);
 			exit(EXIT_FAILURE);
