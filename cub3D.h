@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lromero- <l.romero.it@gmail.com>           +#+  +:+       +#+        */
+/*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:47:37 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/03 14:41:31 by lromero-         ###   ########.fr       */
+/*   Updated: 2024/05/07 22:23:58 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,29 @@ typedef struct s_data
 	int		c[4];
 }			t_data;
 
-
 /***** FUNCTIONS *****/
 
 void	ft_check_argc(int n);
+void	ft_read_file(char *file_name, t_data *data);
 int		ft_check_and_open(char *file);
+void	ft_check_dir(char *filename);
 void	ft_empty_file(char *file_name);
 char	*ft_lines_join(char *s1, char *s2);
-void	ft_read_file(char *file_name, t_data *data);
+void	ft_extract_data(t_data *data);
+void	ft_extract_path(t_data *data);
+int		ft_check_path(t_data *data, char *tmp);
+int		ft_set_path(t_data *data, char *tmp, int i);
+char	*ft_get_path_value(char *tmp);
+void	ft_path_not_found(t_data *data);
+
 
 /***** PRINTING FUNCTIONS *****/
 
 void	ft_print_data_content(t_data *data);
+void	ft_print_fields(t_data *data);
+
+/***** CLEANUP FUNCTIONS *****/
+
+void	ft_free_data(t_data *data);
 
 #endif

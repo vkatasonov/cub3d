@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_skip_spaces.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 13:49:39 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/04 01:54:32 by vkatason         ###   ########.fr       */
+/*   Created: 2024/05/02 22:58:16 by vkatason          #+#    #+#             */
+/*   Updated: 2024/05/02 23:00:29 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "libft.h"
 
-static void	ft_leaks(void)
+/**
+ * @brief			Function to skip leading white spaces
+ * 					in the string pointed to by `str`
+ * 					and return a pointer to the first 
+ * 					non-white space character.
+ * 
+ * @param str		The string to be checked.
+ * @return char*	A pointer to the first non-white space character.
+ */
+char	*ft_skip_spaces(char *str)
 {
-	system("leaks -q cub3D");
-}
-
-int	main(int argc, char **argv)
-{
-	t_data	data;
-
-	atexit(ft_leaks);
-	ft_memset(&data, 0, sizeof(t_data));
-	ft_check_argc(argc);
-	ft_read_file(argv[1], &data);
-	ft_print_data_content(&data);
-	ft_print_fields(&data);
-	ft_free_data(&data);
-	return (0);
+	while (*str == ' ' || *str == '\t')
+		str++;
+	return (str);
 }
