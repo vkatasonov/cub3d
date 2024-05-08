@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 14:35:05 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/03 19:24:37 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/08 22:00:41 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ void	ft_print_fields(t_data *data)
 	ft_printf("SO: %s\n", data->so);
 	ft_printf("WE: %s\n", data->we);
 	ft_printf("EA: %s\n", data->ea);
+}
+
+void	ft_print_colors(t_data *data)
+{
+	ft_printf(GREEN U "\n\n********** Received colors **********\n\n" RST);
 	ft_printf("F: %d, %d, %d, %d\n",
 		data->f[0],
 		data->f[1],

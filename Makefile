@@ -6,7 +6,7 @@
 #    By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/14 15:51:14 by vkatason          #+#    #+#              #
-#    Updated: 2024/05/04 01:45:47 by vkatason         ###   ########.fr        #
+#    Updated: 2024/05/08 19:34:16 by vkatason         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ CLEAN = rm -Rf
 LIBFT = libft
 MLX42 = MLX42
 SRC = 	cleanup.c \
+		extract_color.c \
 		extract_data_from_context.c \
 		extract_path.c \
 		init_checks.c \
