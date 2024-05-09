@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 23:31:34 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/07 21:03:50 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/09 17:57:32 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,5 @@
 void	ft_extract_data(t_data *data)
 {
 	ft_extract_path(data);
+	ft_extract_color(data);
 }

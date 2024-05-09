@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 01:44:06 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/07 22:23:00 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/09 17:55:44 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,12 +91,10 @@ int	ft_check_path(t_data *data, char *tmp)
  * 					content array and checks if the line starts with
  * 					NO, SO, WE, EA. If it's true it calls ft_check_path
  * 					function to check if the path is already set.
- * 					Loop breaks if the line is empty or if the new line 
- * 					starts symbols different from N, S, W, E. It's made
- * 					to avoid reading the rest of the map, but to check
- * 					if we have more than one path for each texture. 
+ * 					If the path is already set it exits the program with
+ * 					the error message.
  * 
- * @param data 
+ * @param data 		pointer to the main data struct
  */
 void	ft_extract_path(t_data *data)
 {
@@ -106,23 +104,19 @@ void	ft_extract_path(t_data *data)
 	i = 0;
 	while (data->content[i])
 	{
-		tmp = ft_strdup(data->content[i]);
+		tmp = data->content[i];
 		if (tmp == 0)
 			break ;
 		tmp = ft_skip_spaces(tmp);
 		if (!ft_strchr("NSWE\n", *tmp))
 		{
-			free(tmp);
-			break ;
-		}	
+			i++;
+			continue ;
+		}
 		if (ft_strchr("NSWE\n", *tmp) && ft_check_path(data, tmp))
 			exit(ft_printf_fd(STDERR_FILENO,
-					RED "Error\nDuplicated path: %s\n", tmp));
-		else if (!ft_strchr("NSWE\n", *tmp))
-			exit(ft_printf_fd(STDERR_FILENO,
-					RED "Error\nIncorrect map field: %s\n", tmp));
+					RED "Error\nDuplicated texture path: %s\n"RST, tmp));
 		i++;
-		free(tmp);
 	}
 	ft_path_not_found(data);
 }
