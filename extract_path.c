@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 01:44:06 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/08 19:22:41 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/09 17:55:44 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	ft_extract_path(t_data *data)
 	i = 0;
 	while (data->content[i])
 	{
-		tmp = ft_strdup(data->content[i]);
+		tmp = data->content[i];
 		if (tmp == 0)
 			break ;
 		tmp = ft_skip_spaces(tmp);
@@ -112,12 +112,11 @@ void	ft_extract_path(t_data *data)
 		{
 			i++;
 			continue ;
-		}	
+		}
 		if (ft_strchr("NSWE\n", *tmp) && ft_check_path(data, tmp))
 			exit(ft_printf_fd(STDERR_FILENO,
-					RED "Error\nDuplicated texture path: %s\n", tmp));
+					RED "Error\nDuplicated texture path: %s\n"RST, tmp));
 		i++;
-		free(tmp);
 	}
 	ft_path_not_found(data);
 }
