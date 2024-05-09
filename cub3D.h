@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:47:37 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/08 22:29:31 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/09 20:23:06 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,10 @@ int		ft_set_path(t_data *data, char *tmp, int i);
 char	*ft_get_path_value(char *tmp);
 void	ft_path_not_found(t_data *data);
 void	ft_extract_color(t_data *data);
-void	ft_color_errors(t_data *data);
+int		ft_find_color(t_data *data, char *tmp);
+int		ft_set_color(t_data *data, char *tmp, int i);
+int		ft_get_color_values(int *value, char **color, char *tmp);
+void	ft_color_not_found(t_data *data);
 
 /***** PRINTING FUNCTIONS *****/
 
