@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 16:38:16 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/11 17:59:42 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/11 21:29:41 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	ft_map_height(t_data *data)
 		i++;
 	}
 	return (count);
-	printf(GREEN"Height of map: %d\n"RST, count);
 }
 
 /**
@@ -77,6 +76,82 @@ void	ft_extract_map(t_data *data)
 			j++;
 		}
 		data->map[j] = 0;
+		i++;
+	}
+	ft_not_tab(data);
+	ft_not_valid_char(data);
+}
+
+/**
+ * @brief 					Function to check if the map contains
+ * 							invalid characters. If the character is
+ * 							not '0', '1', 'N', 'S', 'W', 'E', ' ' or '\n'
+ * 							it exits the program with an error message.
+ * 	
+ * @param data 				Pointer to the main data struct
+ * @var i					Counter for the data->map array
+ * @var j					Counter for the current line
+ * @var data->map[i][j]		Current character	
+ */
+void	ft_not_valid_char(t_data *data)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (data->map[i])
+	{
+		j = 0;
+		while (data->map[i][j])
+		{
+			if (!(data->map[i][j] == '0' || data->map[i][j] == '1'
+				|| data->map[i][j] == 'N' || data->map[i][j] == 'S'
+				|| data->map[i][j] == 'W' || data->map[i][j] == 'E'
+				|| data->map[i][j] == ' ' || data->map[i][j] == '\n'))
+			{
+				ft_printf_fd(2,
+					RED "Error\nInvalid character in the map: %c\n" RST,
+					data->map[i][j]);
+				ft_free_data(data);
+				exit(1);
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
+/**
+ * @brief 					Function to check if the map contains tabs
+ * 							(that is invalid in terms of raycasting). 
+ * 							If the map contains tabs it exits the program
+ * 							with an error message.
+ * 	
+ * @param data 				Pointer to the main data struct
+ * @var i					Counter for the data->map array
+ * @var j					Counter for the current line
+ * @var data->map[i][j]		Current character
+ */
+void	ft_not_tab(t_data *data)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (data->map[i])
+	{
+		j = 0;
+		while (data->map[i] && data->map[i][j])
+		{
+			if (data->map[i][j] == '\t')
+			{
+				ft_printf_fd(2, RED "Error\nMap contains tabs\n"RST);
+				ft_free_data(data);
+				exit(1);
+			}
+			j++;
+		}
 		i++;
 	}
 }

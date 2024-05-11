@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:47:37 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/11 17:11:48 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/11 21:28:44 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,9 @@ int		ft_get_color_values(int *value, char **color, char *tmp);
 void	ft_color_not_found(t_data *data);
 void	ft_check_textures(t_data *data);
 void	ft_extract_map(t_data *data);
+int		ft_map_height(t_data *data);
+void	ft_not_tab(t_data *data);
+void	ft_not_valid_char(t_data *data);
 
 /***** PRINTING FUNCTIONS *****/
 
