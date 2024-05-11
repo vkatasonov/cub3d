@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 14:35:05 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/08 22:00:41 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/11 17:09:12 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,19 @@ void	ft_print_data_content(t_data *data)
 	while (data->content[i])
 	{
 		ft_printf("%s\n", data->content[i]);
+		i++;
+	}
+}
+
+void	ft_print_map(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	ft_printf(GREEN U "\n\n********** Extracted map **********\n\n" RST);
+	while (data->map[i])
+	{
+		ft_printf("%s\n", data->map[i]);
 		i++;
 	}
 }

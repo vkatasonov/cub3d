@@ -6,7 +6,7 @@
 #    By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/14 15:51:14 by vkatason          #+#    #+#              #
-#    Updated: 2024/05/11 12:08:05 by vkatason         ###   ########.fr        #
+#    Updated: 2024/05/11 16:38:51 by vkatason         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRC = 	check_textures.c \
 		cleanup.c \
 		extract_color.c \
 		extract_data_from_context.c \
+		extract_map.c \
 		extract_path.c \
 		init_checks.c \
 		main.c \
