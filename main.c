@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:49:39 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/08 22:26:36 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/11 12:37:44 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	main(int argc, char **argv)
 	ft_memset(&data, 0, sizeof(t_data));
 	ft_check_argc(argc);
 	ft_read_file(argv[1], &data);
-	ft_print_data_content(&data);
 	ft_print_fields(&data);
 	ft_print_colors(&data);
+	ft_printf(GREEN"Textures are loaded\n"RST);
 	ft_free_data(&data);
 	return (0);
 }
