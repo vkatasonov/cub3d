@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 16:38:16 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/11 21:29:41 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/12 17:25:47 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,9 @@ void	ft_extract_map(t_data *data)
 
 	i = 0;
 	j = 0;
-	data->map = malloc(sizeof(char *) * ft_map_height(data) + 1);
+	data->map = malloc(sizeof(char *) * (ft_map_height(data) + 1));
+	if (!data->map)
+		return ;
 	while (data->content[i])
 	{
 		tmp = data->content[i];
@@ -75,11 +77,10 @@ void	ft_extract_map(t_data *data)
 			data->map[j] = ft_strdup(data->content[i]);
 			j++;
 		}
-		data->map[j] = 0;
 		i++;
 	}
-	ft_not_tab(data);
-	ft_not_valid_char(data);
+	if (j <= ft_map_height(data))
+		data->map[j] = NULL;
 }
 
 /**
@@ -154,4 +155,11 @@ void	ft_not_tab(t_data *data)
 		}
 		i++;
 	}
+}
+
+void	ft_check_map(t_data *data)
+{
+	ft_extract_map(data);
+	ft_not_valid_char(data);
+	ft_not_tab(data);
 }
