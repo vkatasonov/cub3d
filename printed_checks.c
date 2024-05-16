@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 14:35:05 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/11 17:09:12 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/16 16:56:36 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,11 @@ void	ft_print_colors(t_data *data)
 		data->c[1],
 		data->c[2],
 		data->c[3]);
+}
+
+void	ft_print_position(t_data *data)
+{
+	printf(GREEN U "\n\n********** Player Position **********\n\n" RST);
+	printf("Direction: %f, %f\n", data->dir[0], data->dir[1]);
+	printf("Coordinates\nX: %f, Y: %f\n", data->px, data->py);
 }

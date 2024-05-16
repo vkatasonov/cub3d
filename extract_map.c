@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 16:38:16 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/12 17:25:47 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/16 14:54:59 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ void	ft_extract_map(t_data *data)
 
 	i = 0;
 	j = 0;
-	data->map = malloc(sizeof(char *) * (ft_map_height(data) + 1));
+	data->map_height = ft_map_height(data);
+	data->map = malloc(sizeof(char *) * (data->map_height + 1));
 	if (!data->map)
 		return ;
 	while (data->content[i])
@@ -79,7 +80,7 @@ void	ft_extract_map(t_data *data)
 		}
 		i++;
 	}
-	if (j <= ft_map_height(data))
+	if (j <= data->map_height)
 		data->map[j] = NULL;
 }
 
@@ -157,6 +158,12 @@ void	ft_not_tab(t_data *data)
 	}
 }
 
+/**
+ * @brief 				Function to check the map for invalid characters
+ * 						and tabs. Main function that combine basic map 
+ * 						checks befofe extracting it from the file. 
+ * 
+ */
 void	ft_check_map(t_data *data)
 {
 	ft_extract_map(data);

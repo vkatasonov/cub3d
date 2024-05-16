@@ -6,24 +6,27 @@
 #    By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/14 15:51:14 by vkatason          #+#    #+#              #
-#    Updated: 2024/05/12 18:24:57 by vkatason         ###   ########.fr        #
+#    Updated: 2024/05/16 17:03:20 by vkatason         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 USER := $(shell whoami)
 CUB3DLIB = cub3D.a
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra 
+#-fsanitize=address
 CC = gcc -g
 CLEAN = rm -Rf
 LIBFT = libft
 MLX42 = MLX42
 SRC = 	check_textures.c \
 		cleanup.c \
+		copy_map.c \
 		extract_color.c \
 		extract_data_from_context.c \
 		extract_map.c \
 		extract_path.c \
+		extract_position.c \
 		init_checks.c \
 		main.c \
 		printed_checks.c \
@@ -47,9 +50,9 @@ all: libftmake mlx42make $(NAME)
 
 $(NAME): $(CUB3DLIB)
 # --------- Para el campus ----------
-#@$(CC) $(CFLAGS) $(CUB3DLIB) $(LIBFT)/libft.a $(MLX42)/libmlx42.a -lm -I include -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/" -o $(NAME)
+	@$(CC) $(CFLAGS) $(CUB3DLIB) $(LIBFT)/libft.a $(MLX42)/libmlx42.a -lm -I include -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/" -o $(NAME)
 # -------- Para uso en casa --------
-	@$(CC) $(CFLAGS) $(CUB3DLIB) $(LIBFT)/libft.a $(MLX42)/libmlx42.a -lm -I include -lglfw -L"/opt/homebrew/Cellar/glfw/3.4/lib/" -o $(NAME)
+#@$(CC) $(CFLAGS) $(CUB3DLIB) $(LIBFT)/libft.a $(MLX42)/libmlx42.a -lm -I include -lglfw -L"/opt/homebrew/Cellar/glfw/3.4/lib/" -o $(NAME)
 	@echo "$(GREEN)The app $(NAME) was successfully compiled. $(DEFAULT)"
 
 .c.o:
