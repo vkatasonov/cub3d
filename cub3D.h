@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:47:37 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/16 16:53:29 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:49:37 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	ft_not_valid_char(t_data *data);
 void	ft_check_map(t_data *data);
 void	ft_copy_map(t_data *data);
 void	ft_get_player_position(t_data *data);
-void	ft_check_position(t_data *data, char c);
+void	ft_check_player_direction(t_data *data, char c);
 
 /***** PRINTING FUNCTIONS *****/
 

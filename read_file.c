@@ -6,12 +6,25 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 13:12:37 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/04 01:46:13 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/16 19:00:37 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
+/**
+ * @brief 				Rewritten ft_strjoin function to 
+ * 						join two strings. Used to copy the
+ * 						content of the file to the data->content.
+ * 
+ * @param s1 			First string		
+ * @param s2 			Second string
+ * @return char* 		Pointer to the joined string
+ * 
+ * @attention 			`ft_calloc` is used to allocate memory
+ * 						for the joined string and `free` to
+ * 						clean the first string. 
+ */
 char	*ft_lines_join(char *s1, char *s2)
 {
 	char	*joined;
@@ -36,6 +49,16 @@ char	*ft_lines_join(char *s1, char *s2)
 	return (joined);
 }
 
+/**
+ * @brief 					Function to check if the file exists
+ * 							and open it. If the file does not exist
+ * 							the program will exit with an error.
+ * 							Function reads `.cub` file and saves its
+ * 							content to the data->content array.
+ * 
+ * @param file_name 		Name of the file to read from
+ * @param data 				Pointer to the main data struct
+ */
 void	ft_read_file(char *file_name, t_data *data)
 {
 	int		fd;
