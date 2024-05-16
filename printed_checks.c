@@ -6,12 +6,19 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 14:35:05 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/16 16:56:36 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:55:37 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
+/**
+ * @brief 				Function to print the content read 
+ * 						from `.cub` file.
+ * 
+ * @param data 			Pointer to the main data struct
+ * @var i				Counter for the data->content array
+ */
 void	ft_print_data_content(t_data *data)
 {
 	int	i;
@@ -25,6 +32,12 @@ void	ft_print_data_content(t_data *data)
 	}
 }
 
+/**
+ * @brief 				Function to print the extracted map.
+ * 
+ * @param data 			Pointer to the main data struct
+ * @var i				Counter for the data->map array
+ */
 void	ft_print_map(t_data *data)
 {
 	int	i;
@@ -38,6 +51,12 @@ void	ft_print_map(t_data *data)
 	}
 }
 
+/**
+ * @brief 				Function to print paths to the textures
+ * 						received from the `.cub` file.
+ * 
+ * @param data 			Pointer to the main data struct
+ */
 void	ft_print_fields(t_data *data)
 {
 	ft_printf(GREEN U "\n\n********** Received paths **********\n\n" RST);
@@ -47,6 +66,13 @@ void	ft_print_fields(t_data *data)
 	ft_printf("EA: %s\n", data->ea);
 }
 
+/**
+ * @brief 				Function to print the colors received
+ * 						from the `.cub` file and saved to the
+ * 						data->f and to the data->c.
+ * 
+ * @param data 			Pointer to the main data struct
+ */
 void	ft_print_colors(t_data *data)
 {
 	ft_printf(GREEN U "\n\n********** Received colors **********\n\n" RST);
@@ -62,6 +88,15 @@ void	ft_print_colors(t_data *data)
 		data->c[3]);
 }
 
+/**
+ * @brief 			Function to print the position 
+ * 					of the player on the map and the
+ * 					direction of the player (NSWE).
+ * 					Depending on the direction we set the
+ *					wall image. 
+ * 
+ * @param data 		Pointer to the main data struct
+ */
 void	ft_print_position(t_data *data)
 {
 	printf(GREEN U "\n\n********** Player Position **********\n\n" RST);

@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:49:39 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/16 16:54:04 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:20:38 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,7 @@
 
 void	ft_leaks(void)
 {
-	int	result;
-
-	result = system("leaks -q cub3D");
-	if (result != 0) 
-	{
-		printf(RED"Error: system command failed with code %d\n"RST, result);
-	}
+	system("leaks -q cub3D");
 }
 
 int	main(int argc, char **argv)

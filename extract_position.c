@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:41:47 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/16 17:41:13 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:50:36 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ void	ft_get_player_position(t_data *data)
 		{
 			if (ft_strchr("NSWE", tmp[j]))
 			{
-				data->px = j;
-				data->py = i;
-				ft_check_position(data, tmp[j]);
+				data->px = j + 0.5;
+				data->py = i + 0.5;
+				ft_check_player_direction(data, tmp[j]);
 				return ;
 			}
 			j++;
@@ -48,7 +48,19 @@ void	ft_get_player_position(t_data *data)
 	}
 }
 
-void	ft_check_position(t_data *data, char c)
+/**
+ * @brief 				Function to check the player's direction.
+ * 						Depending on the character it sets the direction
+ * 						to the data->dir array.
+ * 						N - North (0, -1)
+ * 						S - South (0, 1)
+ * 						W - West (-1, 0)
+ * 						E - East (1, 0) 
+ * 
+ * @param data 			Pointer to the main data struct
+ * @param c				Character to check the direction
+ */
+void	ft_check_player_direction(t_data *data, char c)
 {
 	if (c == 'N')
 	{

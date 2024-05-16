@@ -6,12 +6,16 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 23:22:28 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/16 13:53:32 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:12:26 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
+/**
+ * @brief 				Function to free the data struct
+ * 						and all its members. 
+ */
 void	ft_free_data(t_data *data)
 {
 	if (data->content)
@@ -31,7 +35,17 @@ void	ft_free_data(t_data *data)
 	ft_clean_scr(data);
 }
 
-
+/**
+ * @brief 				Function to clean the screen
+ * 						and free all its members.
+ * 						Destroy the images and textures.
+ * 
+ * @param data 			Pointer to the main data struct
+ * @attention 			mlx_terminate is used to close 
+ * 						the connection to the server
+ * 						and free the memory allocated
+ * 						for the `mlx struct`.
+ */
 void	ft_clean_scr(t_data *data)
 {
 	if (data->scr)
@@ -46,6 +60,12 @@ void	ft_clean_scr(t_data *data)
 	}
 }
 
+/**
+ * @brief 				Function to destroy the images
+ * 						allocated in the data->scr struct.
+ * 
+ * @param data 			Pointer to the main data struct
+ */
 void	ft_destroy_images(t_data *data)
 {
 	int	i;
@@ -63,6 +83,12 @@ void	ft_destroy_images(t_data *data)
 	}
 }
 
+/**
+ * @brief 				Function to destroy the textures
+ * 						allocated in the data->scr struct.
+ * 
+ * @param data 			Pointer to the main data struct
+ */
 void	ft_destroy_textures(t_data *data)
 {
 	int	i;
