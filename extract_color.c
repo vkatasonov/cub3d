@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:10:21 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/09 21:02:26 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/11 21:27:31 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,7 @@ void	ft_extract_color(t_data *data)
 		}
 		if (ft_strchr("FC\n", *tmp) && ft_find_color(data, tmp))
 			exit(ft_printf_fd(STDERR_FILENO,
-					RED "Error\nDuplicated color data: %s\n"RST, tmp));
+					RED "Error\nEmpty line or wrong color data\n"RST));
 		i++;
 	}
 	ft_color_not_found(data);

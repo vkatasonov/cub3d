@@ -6,7 +6,7 @@
 #    By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/14 15:51:14 by vkatason          #+#    #+#              #
-#    Updated: 2024/05/09 17:49:50 by vkatason         ###   ########.fr        #
+#    Updated: 2024/05/16 17:03:20 by vkatason         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,14 @@ CC = gcc -g
 CLEAN = rm -Rf
 LIBFT = libft
 MLX42 = MLX42
-SRC = 	cleanup.c \
+SRC = 	check_textures.c \
+		cleanup.c \
+		copy_map.c \
 		extract_color.c \
 		extract_data_from_context.c \
+		extract_map.c \
 		extract_path.c \
+		extract_position.c \
 		init_checks.c \
 		main.c \
 		printed_checks.c \

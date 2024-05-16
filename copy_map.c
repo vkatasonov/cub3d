@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extract_data_from_context.c                        :+:      :+:    :+:   */
+/*   copy_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/03 23:31:34 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/16 17:01:38 by vkatason         ###   ########.fr       */
+/*   Created: 2024/05/16 14:47:04 by vkatason          #+#    #+#             */
+/*   Updated: 2024/05/16 14:55:30 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void	ft_extract_data(t_data *data)
+void	ft_copy_map(t_data *data)
 {
-	ft_extract_path(data);
-	ft_extract_color(data);
-	ft_check_textures(data);
-	ft_check_map(data);
-	ft_get_player_position(data);
+	int		i;
+
+	i = 0;
+	data->mapcopy = malloc(sizeof(char *) * (data->map_height + 1));
+	if (!data->mapcopy)
+		return ;
+	while (data->map[i])
+	{
+		data->mapcopy[i] = ft_strdup(data->map[i]);
+		i++;
+	}
+	data->mapcopy[i] = NULL;
 }
+
