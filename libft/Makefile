@@ -6,7 +6,7 @@
 #    By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/27 12:54:50 by vkatason          #+#    #+#              #
-#    Updated: 2024/05/02 23:02:02 by vkatason         ###   ########.fr        #
+#    Updated: 2024/05/25 18:39:01 by vkatason         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 CFLAGS = -Wall -Werror -Wextra
 
-CC = gcc -g
+CC = clang -g
 
 LIB = ar -rcs $(NAME)
 
