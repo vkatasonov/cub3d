@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   extract_data_from_context.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 13:49:39 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/25 19:17:31 by vkatason         ###   ########.fr       */
+/*   Created: 2024/05/03 23:31:34 by vkatason          #+#    #+#             */
+/*   Updated: 2024/05/16 18:17:56 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-int	main(int argc, char **argv)
+/**
+ * @brief 				Function to extract basic data
+ * 						from the data->context. It combines
+ * 						functions to extract path, color, check
+ * 						textures, check map and get player position.
+ * 
+ * @param data 			Pointer to the main data struct
+ */
+void	ft_extract_data(t_data *data)
 {
-	t_data	data;
-
-	ft_memset(&data, 0, sizeof(t_data));
-	ft_check_argc(argc);
-	ft_read_file(argv[1], &data);
-	ft_print_fields(&data);
-	ft_print_colors(&data);
-	ft_printf(GREEN"Textures are loaded\n"RST);
-	ft_print_map(&data);
-	ft_print_position(&data);
-	//ft_free_data(&data);
-	return (0);
+	ft_extract_path(data);
+	ft_extract_color(data);
+	ft_check_textures(data);
+	ft_check_map(data);
+	ft_get_player_position(data);
 }
