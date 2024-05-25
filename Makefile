@@ -6,7 +6,7 @@
 #    By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/14 15:51:14 by vkatason          #+#    #+#              #
-#    Updated: 2024/05/16 18:24:00 by vkatason         ###   ########.fr        #
+#    Updated: 2024/05/25 19:18:04 by vkatason         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME = cub3D
 USER := $(shell whoami)
 CUB3DLIB = cub3D.a
 CFLAGS = -Wall -Werror -Wextra 
-#-fsanitize=address
-CC = gcc -g
+#-fsanitize=leak
+CC = clang -g
 CLEAN = rm -Rf
 LIBFT = libft
 MLX42 = MLX42
@@ -50,7 +50,7 @@ all: libftmake mlx42make $(NAME)
 
 $(NAME): $(CUB3DLIB)
 # --------- Para el campus ----------
-	@$(CC) $(CFLAGS) $(CUB3DLIB) $(LIBFT)/libft.a $(MLX42)/libmlx42.a -lm -I include -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/" -o $(NAME)
+	@$(CC) $(CFLAGS) $(CUB3DLIB) $(LIBFT)/libft.a $(MLX42)/libmlx42.a -ldl -lglfw -pthread -lm -o $(NAME)
 # -------- Para uso en casa --------
 #@$(CC) $(CFLAGS) $(CUB3DLIB) $(LIBFT)/libft.a $(MLX42)/libmlx42.a -lm -I include -lglfw -L"/opt/homebrew/Cellar/glfw/3.4/lib/" -o $(NAME)
 	@echo "$(GREEN)The app $(NAME) was successfully compiled. $(DEFAULT)"
@@ -82,7 +82,7 @@ norma:
 mlx42make:
 	@make -C $(MLX42)
 mlx42clean:
-	@make clean -C $(MLX42)
+	@make clean -C $(MLX42) 
 mlx42fclean:
 	@make fclean -C $(MLX42)
 mlx42re: libftclean libftmake
