@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mzea-mor <mzea-mor@student.42malaga.com    +#+  +:+       +#+         #
+#    By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/27 12:54:50 by vkatason          #+#    #+#              #
-#    Updated: 2024/04/01 18:49:42 by mzea-mor         ###   ########.fr        #
+#    Updated: 2024/05/25 18:14:27 by vkatason         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 CFLAGS = -Wall -Werror -Wextra
 
-CC = gcc -g
+CC = clang -g
 
 LIB = ar -rcs $(NAME)
 
