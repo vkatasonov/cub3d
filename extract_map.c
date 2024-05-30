@@ -6,27 +6,27 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 16:38:16 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/30 13:10:45 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/30 19:11:28 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
 /**
- * @brief 				Function to get the height of the map
- * 						from the data->content array to use it
- * 						to allocate exact amount of memory
- * 						for the map. Helper function for ft_extract_map.
- * 
- * @note				Inside this one another function called - ft_map_width. 
- * 						It serves to save in data struct the  width of the widest
- * 						string. 
- * 
- * @param data 			Pointer to the main data struct
- * @return int			The height of the map
- * @var i				Counter for the data->content array
- * @var count			Counter for the height of the map
- * @var tmp				Pointer to the current line
+ * @brief 					Function to get the height of the map
+ * 							from the data->content array to use it
+ * 							to allocate exact amount of memory
+ * 							for the map. Helper function for ft_extract_map.
+ * 	
+ * @note					Inside this one another function called - ft_map_width. 
+ * 							It serves to save in data struct the  width of the widest
+ * 							string. 
+ * 	
+ * @param data 				Pointer to the main data struct
+ * @return int				The height of the map
+ * @var i					Counter for the data->content array
+ * @var count				Counter for the height of the map
+ * @var tmp					Pointer to the current line
  */
 int	ft_map_height(t_data *data)
 {
@@ -51,14 +51,14 @@ int	ft_map_height(t_data *data)
 }
 
 /**
- * @brief 				Function to extract the map 
- * 						from the data->content and save it
- * 						to the data->map array.
- * 
- * @param data 			Pointer to the main data struct
- * @var tmp				Pointer to the current line
- * @var i				Counter for the data->content array
- * @var j				Counter for the data->map array
+ * @brief 					Function to extract the map 
+ * 							from the data->content and save it
+ * 							to the data->map array.
+ * 	
+ * @param data 				Pointer to the main data struct
+ * @var tmp					Pointer to the current line
+ * @var i					Counter for the data->content array
+ * @var j					Counter for the data->map array
  */
 void	ft_extract_map(t_data *data)
 {

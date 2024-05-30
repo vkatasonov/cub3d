@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:41:47 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/30 14:37:18 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/30 19:02:08 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,16 @@ void	ft_get_player_position(t_data *data)
 }
 
 /**
- * @brief 				Function to check the player's direction.
- * 						Depending on the character it sets the direction
- * 						to the data->dir array.
- * 						N - North (0, -1)
- * 						S - South (0, 1)
- * 						W - West (-1, 0)
- * 						E - East (1, 0) 
- * 
- * @param data 			Pointer to the main data struct
- * @param c				Character to check the direction
+ * @brief 			Function to check the player's direction.
+ * 					Depending on the character it sets the direction
+ * 					to the data->dir array.
+ * 					N - North (0, -1)
+ * 					S - South (0, 1)
+ * 					W - West (-1, 0)
+ * 					E - East (1, 0) 
+ *
+ * @param data 		Pointer to the main data struct
+ * @param c			Character to check the direction
  */
 void	ft_check_player_direction(t_data *data, char c)
 {

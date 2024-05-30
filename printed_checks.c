@@ -6,18 +6,18 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 14:35:05 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/30 12:50:04 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/30 19:13:37 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
 /**
- * @brief 				Function to print the content read 
- * 						from `.cub` file.
- * 
- * @param data 			Pointer to the main data struct
- * @var i				Counter for the data->content array
+ * @brief 			Function to print the content read 
+ * 					from `.cub` file.
+ *
+ * @param data 		Pointer to the main data struct
+ * @var i			Counter for the data->content array
  */
 void	ft_print_data_content(t_data *data)
 {
@@ -33,14 +33,15 @@ void	ft_print_data_content(t_data *data)
 }
 
 /**
- * @brief 				Function to print the extracted map.
- * 
- * @param data 			Pointer to the main data struct
- * @var i				Counter for the data->map array
+ * @brief 			Function to print the extracted map.
+ *
+ * @param data 		Pointer to the main data struct
+ * @var i			Counter for the data->map array
  */
 void	ft_print_map(t_data *data)
 {
 	int	i;
+	int j;
 
 	i = 0;
 	ft_printf(GREEN U "\n\n********** Extracted map **********\n\n" RST);
@@ -53,13 +54,20 @@ void	ft_print_map(t_data *data)
 	ft_printf(" %d\n", data->map_height);
 	ft_printf(GREEN U "Map width:"RST);
 	ft_printf(" %d\n", data->map_width);
+	j = 0;
+	ft_printf(GREEN U "\n\n********** Map copy **********\n\n" RST);
+	while (data->mapcopy[j])
+	{
+		ft_printf("%s\n", data->mapcopy[j]);
+		j++;
+	}
 }
 
 /**
- * @brief 				Function to print paths to the textures
- * 						received from the `.cub` file.
- * 
- * @param data 			Pointer to the main data struct
+ * @brief 			Function to print paths to the textures
+ * 					received from the `.cub` file.
+ *
+ * @param data 		Pointer to the main data struct
  */
 void	ft_print_fields(t_data *data)
 {
@@ -71,11 +79,11 @@ void	ft_print_fields(t_data *data)
 }
 
 /**
- * @brief 				Function to print the colors received
- * 						from the `.cub` file and saved to the
- * 						data->f and to the data->c.
- * 
- * @param data 			Pointer to the main data struct
+ * @brief 			Function to print the colors received
+ * 					from the `.cub` file and saved to the
+ * 					data->f and to the data->c.
+ *
+ * @param data 		Pointer to the main data struct
  */
 void	ft_print_colors(t_data *data)
 {
@@ -103,7 +111,11 @@ void	ft_print_colors(t_data *data)
  */
 void	ft_print_position(t_data *data)
 {
-	printf(GREEN U "\n\n********** Player Position **********\n\n" RST);
-	printf("Direction: %f, %f\n", data->dir[0], data->dir[1]);
-	printf("Coordinates\nX: %f, Y: %f\n", data->px, data->py);
+	ft_printf(GREEN U "\n\n********** Player Position **********\n\n" RST);
+	ft_printf(GREEN U "Direction: " RST);
+	printf("\n%f, %f\n\n", data->dir[0], data->dir[1]);
+	printf(GREEN U "Coordinates px (doubles)\n" RST);
+	printf("X: %f, Y: %f\n\n", data->px, data->py);
+	printf(GREEN U "Coordinates mpx (ints)\n" RST);
+	printf("X: %d, Y: %d\n\n", data->mpx, data->mpy);
 }

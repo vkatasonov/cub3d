@@ -6,19 +6,19 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 11:48:07 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/11 12:41:44 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/30 19:06:36 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
 /**
- * @brief			Function to check if the textures are valid
- * 					and load them to the data struct.
- * 					Textures are saved to the data->scr->texture array.
- * 
- * @param data		Pointer to the data struct
- * @warning			DON'T FORGET TO FREE THE TEXTURES (mlx_destroy_texture)
+ * @brief				Function to check if the textures are valid
+ * 						and load them to the data struct.
+ * 						Textures are saved to the data->scr->texture array.
+ * 	
+ * @param data			Pointer to the data struct
+ * @warning				DON'T FORGET TO FREE THE TEXTURES (mlx_destroy_texture)
  */
 void	ft_check_textures(t_data *data)
 {

@@ -6,7 +6,7 @@
 #    By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/14 15:51:14 by vkatason          #+#    #+#              #
-#    Updated: 2024/05/30 13:00:42 by vkatason         ###   ########.fr        #
+#    Updated: 2024/05/30 19:12:50 by vkatason         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,12 +28,14 @@ SRC = 	check_textures.c \
 		extract_position.c \
 		init_checks.c \
 		main.c \
+		map_flood_fill.c \
 		printed_checks.c \
 		read_file.c
 		
 OBJS := $(SRC:.c=.o)
 
-#COLORS
+#######COLORS#######
+
 BOLD	:= \033[1m
 BLACK	:= \033[30;1m
 RED		:= \033[31;1m
