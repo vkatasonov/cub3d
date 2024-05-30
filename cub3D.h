@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:47:37 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/29 13:43:31 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/30 14:32:58 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ typedef struct s_data
 	char			*so;
 	char			*we;
 	char			*ea;
+	int				mpx;
+	int				mpy;
 	double			px;
 	double			py;
 	double			dir[2];

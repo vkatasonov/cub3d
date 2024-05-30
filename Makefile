@@ -6,15 +6,14 @@
 #    By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/14 15:51:14 by vkatason          #+#    #+#              #
-#    Updated: 2024/05/25 19:18:04 by vkatason         ###   ########.fr        #
+#    Updated: 2024/05/30 13:00:42 by vkatason         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 USER := $(shell whoami)
 CUB3DLIB = cub3D.a
-CFLAGS = -Wall -Werror -Wextra 
-#-fsanitize=leak
+CFLAGS = -Wall -Werror -Wextra -fsanitize=leak
 CC = clang -g
 CLEAN = rm -Rf
 LIBFT = libft

@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 16:38:16 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/29 13:40:15 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/30 13:10:45 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void	ft_not_valid_char(t_data *data)
 				|| data->map[i][j] == ' ' || data->map[i][j] == '\n'))
 			{
 				ft_printf_fd(2,
-					RED "Error\nInvalid character in the map: %c\n" RST,
+					RED "Error\nInvalid character in the map %c\n" RST,
 					data->map[i][j]);
 				ft_free_data(data);
 				exit(1);
