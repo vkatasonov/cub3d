@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:47:37 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/16 18:49:37 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/29 13:43:31 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ typedef struct s_data
 	int				f[4];
 	int				c[4];
 	int				map_height;
+	int				map_width;
 	t_scr			*scr;
 }					t_data;
 
@@ -98,6 +99,7 @@ void	ft_color_not_found(t_data *data);
 void	ft_check_textures(t_data *data);
 void	ft_extract_map(t_data *data);
 int		ft_map_height(t_data *data);
+void	ft_map_width(t_data *data);
 void	ft_not_tab(t_data *data);
 void	ft_not_valid_char(t_data *data);
 void	ft_check_map(t_data *data);

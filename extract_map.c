@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 16:38:16 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/16 14:54:59 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/29 13:40:15 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
  * 						from the data->content array to use it
  * 						to allocate exact amount of memory
  * 						for the map. Helper function for ft_extract_map.
+ * 
+ * @note				Inside this one another function called - ft_map_width. 
+ * 						It serves to save in data struct the  width of the widest
+ * 						string. 
  * 
  * @param data 			Pointer to the main data struct
  * @return int			The height of the map
@@ -42,6 +46,7 @@ int	ft_map_height(t_data *data)
 			count++;
 		i++;
 	}
+	ft_map_width(data);
 	return (count);
 }
 

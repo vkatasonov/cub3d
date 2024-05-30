@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 14:35:05 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/16 18:55:37 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/29 13:47:26 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,10 @@ void	ft_print_map(t_data *data)
 		ft_printf("%s\n", data->map[i]);
 		i++;
 	}
+	ft_printf(GREEN U "Map height:"RST);
+	ft_printf(" %d\n", data->map_height);
+	ft_printf(GREEN U "Map width:"RST);
+	ft_printf(" %d\n", data->map_width);
 }
 
 /**
