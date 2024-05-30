@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:41:47 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/16 18:50:36 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/30 19:02:08 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,15 @@
  * @var i			Counter for the data->map array
  * @var j			Counter for the data->map[i] array
  * @var tmp			Pointer to the current line
+ * 
+ * @note			In this function we store to parameters in the data struct:
+ * 					- mpx, mpy - the position of the player on the map
+ * 					- px, py - the position of the player in the center of the cell
+ * 					of the map.
+ * 					The difference between mpx, mpy and px, py is that the first
+ * 					one is integer and the second one is double. The first one is
+ * 					used to have reference while checking the map and the second
+ * 					one is used for painting purposes.
  */
 
 void	ft_get_player_position(t_data *data)
@@ -37,6 +46,8 @@ void	ft_get_player_position(t_data *data)
 		{
 			if (ft_strchr("NSWE", tmp[j]))
 			{
+				data->mpx = j;
+				data->mpy = i;
 				data->px = j + 0.5;
 				data->py = i + 0.5;
 				ft_check_player_direction(data, tmp[j]);
@@ -49,16 +60,16 @@ void	ft_get_player_position(t_data *data)
 }
 
 /**
- * @brief 				Function to check the player's direction.
- * 						Depending on the character it sets the direction
- * 						to the data->dir array.
- * 						N - North (0, -1)
- * 						S - South (0, 1)
- * 						W - West (-1, 0)
- * 						E - East (1, 0) 
- * 
- * @param data 			Pointer to the main data struct
- * @param c				Character to check the direction
+ * @brief 			Function to check the player's direction.
+ * 					Depending on the character it sets the direction
+ * 					to the data->dir array.
+ * 					N - North (0, -1)
+ * 					S - South (0, 1)
+ * 					W - West (-1, 0)
+ * 					E - East (1, 0) 
+ *
+ * @param data 		Pointer to the main data struct
+ * @param c			Character to check the direction
  */
 void	ft_check_player_direction(t_data *data, char c)
 {

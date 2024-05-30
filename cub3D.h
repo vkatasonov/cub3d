@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:47:37 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/16 18:49:37 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/30 19:07:14 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@
 # define WHITE "\033[1;37m"   /* Bold White */
 
 /**
- * @param px 		corresponds to player position on the x axis
- * @param py 		corresponds to player position on the y axis
+ * @param px 		corresponds to player position on the x axis in the middle of the block
+ * @param py 		corresponds to player position on the y axis in the middle of the block
  * @example 		(0,0) corresponds to the upper-left corner of the map
  * @param dir 		holds the direction the player is facing (y, x)
  * @example 		North:	[-1, 0]
@@ -67,12 +67,15 @@ typedef struct s_data
 	char			*so;
 	char			*we;
 	char			*ea;
+	int				mpx;
+	int				mpy;
 	double			px;
 	double			py;
 	double			dir[2];
 	int				f[4];
 	int				c[4];
 	int				map_height;
+	int				map_width;
 	t_scr			*scr;
 }					t_data;
 
@@ -98,12 +101,15 @@ void	ft_color_not_found(t_data *data);
 void	ft_check_textures(t_data *data);
 void	ft_extract_map(t_data *data);
 int		ft_map_height(t_data *data);
+void	ft_map_width(t_data *data);
 void	ft_not_tab(t_data *data);
 void	ft_not_valid_char(t_data *data);
 void	ft_check_map(t_data *data);
 void	ft_copy_map(t_data *data);
 void	ft_get_player_position(t_data *data);
 void	ft_check_player_direction(t_data *data, char c);
+void	ft_flood_fill(t_data *data, int x, int y);
+void	ft_check_flood_fill(t_data *data);
 
 /***** PRINTING FUNCTIONS *****/
 
@@ -112,6 +118,7 @@ void	ft_print_fields(t_data *data);
 void	ft_print_colors(t_data *data);
 void	ft_print_map(t_data *data);
 void	ft_print_position(t_data *data);
+void	ft_print_extracted(t_data *data);
 
 /***** CLEANUP FUNCTIONS *****/
 
@@ -119,5 +126,9 @@ void	ft_free_data(t_data *data);
 void	ft_clean_scr(t_data *data);
 void	ft_destroy_images(t_data *data);
 void	ft_destroy_textures(t_data *data);
+void	ft_free_and_exit(t_data *data, char *error);
+
+
+/* FUNCTIONS */
 
 #endif
