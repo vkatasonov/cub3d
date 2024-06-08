@@ -6,7 +6,7 @@
 /*   By: lromero- <lromero-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:09:44 by lromero-          #+#    #+#             */
-/*   Updated: 2024/06/08 16:47:21 by lromero-         ###   ########.fr       */
+/*   Updated: 2024/06/08 18:07:34 by lromero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,13 @@ void	ft_draw_column(t_data *data, int x, double angle)
 	{
 		if (i < start && i < SCREENHEIGHT / 2)
 			mlx_put_pixel(data->scr->view, x, i, 
-				ft_get_rgba(data->f[1], data->f[2], data->f[3], 255));
+				ft_get_rgba(data->c[1], data->c[2], data->c[3], 255));
 		else if (i >= start && i < SCREENHEIGHT
 			&& i < SCREENHEIGHT / 2 + wallh / 2)
 			ft_draw_wall(data, x, i, (i - start) / wallh);
 		else
 			mlx_put_pixel(data->scr->view, x, i, 
-				ft_get_rgba(data->c[1], data->c[2], data->c[3], 255));
+				ft_get_rgba(data->f[1], data->f[2], data->f[3], 255));
 		i++;
 	}
 }
