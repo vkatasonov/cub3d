@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+         #
+#    By: lromero- <lromero-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/14 15:51:14 by vkatason          #+#    #+#              #
-#    Updated: 2024/05/25 19:18:04 by vkatason         ###   ########.fr        #
+#    Updated: 2024/06/07 15:42:59 by lromero-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,12 @@ SRC = 	check_textures.c \
 		init_checks.c \
 		main.c \
 		printed_checks.c \
-		read_file.c
+		read_file.c \
+		window.c \
+		movement.c \
+		cast_ray.c \
+		ray_collision.c \
+		raycasting_utils.c
 		
 OBJS := $(SRC:.c=.o)
 
