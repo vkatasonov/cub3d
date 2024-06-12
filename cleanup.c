@@ -105,3 +105,18 @@ void	ft_destroy_textures(t_data *data)
 		}
 	}
 }
+
+/**
+ * @brief 				Function to save function lines in the whole project
+ * 						(god bless the norm) which frees the data struct
+ * 						and exits the program with an error message.
+ * 	
+ * @param data 			Pointer to the main data struct
+ * @param error 		Error message to print
+ * 
+ */
+void	ft_free_and_exit(t_data *data, char *error)
+{
+	ft_free_data(data);
+	exit(ft_printf_fd(STDERR_FILENO, RED "Error\n%s\n"RST, error));
+}

@@ -46,8 +46,8 @@
 # define MOVESPEED 3
 
 /**
- * @param px 		corresponds to player position on the x axis
- * @param py 		corresponds to player position on the y axis
+ * @param px 		corresponds to player position on the x axis in the middle of the block
+ * @param py 		corresponds to player position on the y axis in the middle of the block
  * @example 		(0,0) corresponds to the upper-left corner of the map
  * @param dir 		holds the direction the player is facing (y, x)
  * @example 		North:	[-1, 0]
@@ -86,12 +86,15 @@ typedef struct s_data
 	char			*so;
 	char			*we;
 	char			*ea;
+	int				mpx;
+	int				mpy;
 	double			px;
 	double			py;
 	double			dir[2];
 	int				f[4];
 	int				c[4];
 	int				map_height;
+	int				map_width;
 	t_scr			*scr;
 }					t_data;
 
@@ -117,6 +120,7 @@ void	ft_color_not_found(t_data *data);
 void	ft_check_textures(t_data *data);
 void	ft_extract_map(t_data *data);
 int		ft_map_height(t_data *data);
+void	ft_map_width(t_data *data);
 void	ft_not_tab(t_data *data);
 void	ft_not_valid_char(t_data *data);
 void	ft_check_map(t_data *data);
@@ -125,13 +129,15 @@ void	ft_get_player_position(t_data *data);
 void	ft_check_player_direction(t_data *data, char c);
 void	ft_launch_window(t_data *data);
 void	ft_draw_hook(void *param);
-void    ft_calc_ray(t_data *data, double angle);
+void  ft_calc_ray(t_data *data, double angle);
 void	ft_ray_collision(t_ray *ray, double px, char **map);
 void	ft_draw_column(t_data *data, int x, double angle);
 void	ft_turn_angle(double angle, double *xvector, double *yvector);
 int 	ft_get_rgba(int r, int g, int b, int a);
 void	ft_key_hook(void *param);
 void	ft_movement(t_data *data, double xmov, double ymov);
+void	ft_flood_fill(t_data *data, int x, int y);
+void	ft_check_flood_fill(t_data *data);
 
 /***** PRINTING FUNCTIONS *****/
 
@@ -140,6 +146,7 @@ void	ft_print_fields(t_data *data);
 void	ft_print_colors(t_data *data);
 void	ft_print_map(t_data *data);
 void	ft_print_position(t_data *data);
+void	ft_print_extracted(t_data *data);
 
 /***** CLEANUP FUNCTIONS *****/
 
@@ -147,5 +154,9 @@ void	ft_free_data(t_data *data);
 void	ft_clean_scr(t_data *data);
 void	ft_destroy_images(t_data *data);
 void	ft_destroy_textures(t_data *data);
+void	ft_free_and_exit(t_data *data, char *error);
+
+
+/* FUNCTIONS */
 
 #endif

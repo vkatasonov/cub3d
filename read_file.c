@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 13:12:37 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/16 19:00:37 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/30 19:05:26 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,14 @@ char	*ft_lines_join(char *s1, char *s2)
 }
 
 /**
- * @brief 					Function to check if the file exists
- * 							and open it. If the file does not exist
- * 							the program will exit with an error.
- * 							Function reads `.cub` file and saves its
- * 							content to the data->content array.
- * 
- * @param file_name 		Name of the file to read from
- * @param data 				Pointer to the main data struct
+ * @brief 				Function to check if the file exists
+ * 						and open it. If the file does not exist
+ * 						the program will exit with an error.
+ * 						Function reads `.cub` file and saves its
+ * 						content to the data->content array.
+ *
+ * @param file_name 	Name of the file to read from
+ * @param data 			Pointer to the main data struct
  */
 void	ft_read_file(char *file_name, t_data *data)
 {
@@ -78,5 +78,22 @@ void	ft_read_file(char *file_name, t_data *data)
 	data->content = ft_split(tmp, '\n');
 	free(tmp);
 	ft_extract_data(data);
+	ft_print_extracted(data);
 	close(fd);
+}
+
+/**
+ * @brief 				Function to print the content read
+ * 						from `.cub` file and extracted 
+ * 						in to the data structure. 
+ * 	
+ * @param data 			Pointer to the main data struct
+ */
+void	ft_print_extracted(t_data *data)
+{
+	ft_print_fields(data);
+	ft_print_colors(data);
+	ft_printf(GREEN"\nTextures are loaded\n"RST);
+	ft_print_map(data);
+	ft_print_position(data);
 }

@@ -6,19 +6,19 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 11:20:25 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/07 21:30:50 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/05/30 19:12:21 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
 /**
- * @brief 			Function to check if the number 
- * 					of arguments is correct. 
- * 					according to the subject, programm 
- * 					should have not more that two arguments.
- * 
- * @param n			The number of arguments
+ * @brief 				Function to check if the number 
+ * 						of arguments is correct. 
+ * 						according to the subject, programm 
+ * 						should have not more that two arguments.
+ * 	
+ * @param n				The number of arguments
  */
 void	ft_check_argc(int n)
 {
@@ -45,17 +45,17 @@ void	ft_check_argc(int n)
 }
 
 /**
- * @brief 			Function to check if file is empty
- * 					It opens a file and reads it byte by byte
- * 					If it finds a non-whitespace character, 
- * 					it closes the file and returns.
- * 					If it reaches the end of the file
- * 					and there are only whitespace characters, 
- * 					it prints an error message and exits the program.
- * 
- * @param file_name The file to check
- * @var buffer 		Variable to store the buffer
- * @var fd 			File descriptor
+ * @brief 				Function to check if file is empty
+ * 						It opens a file and reads it byte by byte
+ * 						If it finds a non-whitespace character, 
+ * 						it closes the file and returns.
+ * 						If it reaches the end of the file
+ * 						and there are only whitespace characters, 
+ * 						it prints an error message and exits the program.
+ * 	
+ * @param file_name 	The file to check
+ * @var buffer 			Variable to store the buffer
+ * @var fd 				File descriptor
  */
 void	ft_empty_file(char *file_name)
 {
@@ -117,18 +117,18 @@ void	ft_check_dir(char *filename)
 }
 
 /**
- * @brief 			Function to check file extension, 
- * 					and possibility to open file
- * 	
- * @param file 		The file to check
- * @return int 		The file descriptor
- * @note 			If cannot be opened or 
- * 					it has wrong file extension (not ".cub"), 
- * 					it will print an error message and exit the program.
- * @var filename 	Variable to store the file name
- * @var extension 	Variable to store the file extension
- * @var fd 			File descriptor 
- */
+ * @brief 				Function to check file extension, 
+ * 						and possibility to open file
+ * 		
+ * @param file 			The file to check
+ * @return int 			The file descriptor
+ * @note 				If cannot be opened or 
+ * 						it has wrong file extension (not ".cub"), 
+ * 						it will print an error message and exit the program.
+ * @var filename 		Variable to store the file name
+ * @var extension 		Variable to store the file extension
+ * @var fd 				File descriptor 
+ */	
 int	ft_check_and_open(char *file)
 {
 	char	*filename;
