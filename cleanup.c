@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cleanup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lromero- <lromero-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 23:22:28 by vkatason          #+#    #+#             */
-/*   Updated: 2024/06/06 18:53:17 by lromero-         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:12:16 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_clean_scr(t_data *data)
 		if (data->scr->ray)
 			free(data->scr->ray);
 		ft_destroy_textures(data);
-		ft_destroy_images(data);
+		//ft_destroy_images(data);
 		free(data->scr);
 	}
 }

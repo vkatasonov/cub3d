@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lromero- <lromero-@student.42.fr>          +#+  +:+       +#+         #
+#    By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/14 15:51:14 by vkatason          #+#    #+#              #
-#    Updated: 2024/06/07 15:42:59 by lromero-         ###   ########.fr        #
+#    Updated: 2024/06/12 13:08:42 by vkatason         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,24 +18,24 @@ CC = clang -g
 CLEAN = rm -Rf
 LIBFT = libft
 MLX42 = MLX42
-SRC = cast_ray.c \	
+SRC = cast_ray.c \
     check_textures.c \
     cleanup.c \
-		copy_map.c \
-		extract_color.c \
-		extract_data_from_context.c \
-		extract_map.c \
-		extract_path.c \
-		extract_position.c \
-		init_checks.c \
-		main.c \
-		map_flood_fill.c \
+	copy_map.c \
+	extract_color.c \
+	extract_data_from_context.c \
+	extract_map.c \
+	extract_path.c \
+	extract_position.c \
+	init_checks.c \
+	main.c \
+	map_flood_fill.c \
     movement.c \
-		printed_checks.c \
-		ray_collision.c \
-    raycasting_utils.c
+	printed_checks.c \
+	ray_collision.c \
+    raycasting_utils.c \
     read_file.c \
-		window.c \
+	window.c
 		
 OBJS := $(SRC:.c=.o)
 

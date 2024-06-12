@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 16:38:16 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/30 19:11:28 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:39:47 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@
  * 							to allocate exact amount of memory
  * 							for the map. Helper function for ft_extract_map.
  * 	
- * @note					Inside this one another function called - ft_map_width. 
- * 							It serves to save in data struct the  width of the widest
+ * @note					Inside this one another function 
+ * 							called ft_map_width. 
+ * 							It serves to save in data struct the
+ * 							width of the widest
  * 							string. 
  * 	
  * @param data 				Pointer to the main data struct
