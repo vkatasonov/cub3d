@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:10:21 by vkatason          #+#    #+#             */
-/*   Updated: 2024/06/12 15:37:25 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:38:25 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ int	ft_set_color(t_data *data, char *tmp, int i)
 	color = ft_split(tmp, ',');
 	if (ft_skip_spaces(color[0]) == NULL || *ft_skip_spaces(color[0]) == '\0'
 		|| ft_skip_spaces(color[1]) == NULL || *ft_skip_spaces(color[1]) == '\0'
-		|| ft_skip_spaces(color[2]) == NULL || *ft_skip_spaces(color[2]) == '\0')
+		|| ft_skip_spaces(color[2]) == NULL
+		|| *ft_skip_spaces(color[2]) == '\0')
 	{
 		ft_charpp_free(color);
 		exit(ft_printf_fd(STDERR_FILENO,

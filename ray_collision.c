@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_collision.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lromero- <lromero-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:19:20 by lromero-          #+#    #+#             */
-/*   Updated: 2024/06/08 17:53:10 by lromero-         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:43:25 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static double	ft_next_square(double pos, double dir, double r, double dir2)
 
 static double	ft_move_to_line(double ray_pos, double dir)
 {
-	double end_pos;
+	double	end_pos;
 
 	end_pos = (int)ray_pos;
 	if (dir > 0)

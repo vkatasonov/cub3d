@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 23:22:28 by vkatason          #+#    #+#             */
-/*   Updated: 2024/06/12 13:12:16 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:37:20 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	ft_clean_scr(t_data *data)
 		if (data->scr->ray)
 			free(data->scr->ray);
 		ft_destroy_textures(data);
-		//ft_destroy_images(data);
 		free(data->scr);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:41:47 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/30 19:02:08 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:40:24 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,18 @@
  * @var j			Counter for the data->map[i] array
  * @var tmp			Pointer to the current line
  * 
- * @note			In this function we store to parameters in the data struct:
- * 					- mpx, mpy - the position of the player on the map
- * 					- px, py - the position of the player in the center of the cell
- * 					of the map.
- * 					The difference between mpx, mpy and px, py is that the first
- * 					one is integer and the second one is double. The first one is
- * 					used to have reference while checking the map and the second
+ * @note			In this function we store to parameters 
+ * 					in the data struct: 
+ * 					- mpx, mpy - the position of the player 
+ * 					on the map
+ * 					- px, py - the position of the player 
+ * 					in the center of the cell of the map.
+ * 					The difference between mpx, mpy and px, 
+ * 					py is that the first one is integer 
+ * 					and the second one is double. 
+ * 					The first one is
+ * 					used to have reference while 
+ * 					checking the map and the second
  * 					one is used for painting purposes.
  */
 

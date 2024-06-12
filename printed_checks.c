@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 14:35:05 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/30 19:13:37 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:43:10 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_print_data_content(t_data *data)
 void	ft_print_map(t_data *data)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	ft_printf(GREEN U "\n\n********** Extracted map **********\n\n" RST);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lromero- <lromero-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:47:37 by vkatason          #+#    #+#             */
-/*   Updated: 2024/06/07 15:55:20 by lromero-         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:38:05 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,10 @@
 # define MOVESPEED 3
 
 /**
- * @param px 		corresponds to player position on the x axis in the middle of the block
- * @param py 		corresponds to player position on the y axis in the middle of the block
+ * @param px 		corresponds to player position 
+ * 					on the x axis in the middle of the block
+ * @param py 		corresponds to player position 
+ * 					on the y axis in the middle of the block
  * @example 		(0,0) corresponds to the upper-left corner of the map
  * @param dir 		holds the direction the player is facing (y, x)
  * @example 		North:	[-1, 0]
@@ -129,11 +131,11 @@ void	ft_get_player_position(t_data *data);
 void	ft_check_player_direction(t_data *data, char c);
 void	ft_launch_window(t_data *data);
 void	ft_draw_hook(void *param);
-void  ft_calc_ray(t_data *data, double angle);
+void	ft_calc_ray(t_data *data, double angle);
 void	ft_ray_collision(t_ray *ray, double px, char **map);
 void	ft_draw_column(t_data *data, int x, double angle);
 void	ft_turn_angle(double angle, double *xvector, double *yvector);
-int 	ft_get_rgba(int r, int g, int b, int a);
+int		ft_get_rgba(int r, int g, int b, int a);
 void	ft_key_hook(void *param);
 void	ft_movement(t_data *data, double xmov, double ymov);
 void	ft_flood_fill(t_data *data, int x, int y);

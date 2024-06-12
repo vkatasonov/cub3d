@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_textures.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lromero- <lromero-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 11:48:07 by vkatason          #+#    #+#             */
-/*   Updated: 2024/06/06 21:28:38 by lromero-         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:36:57 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	ft_check_textures(t_data *data)
 		if (!data->scr->texture[i])
 		{
 			ft_printf_fd(STDERR_FILENO,
-					RED "Error\nInvalid texture path: %s\n" RST,
-					data->scr->texture[i]);
+				RED "Error\nInvalid texture path: %s\n" RST,
+				data->scr->texture[i]);
 			ft_free_data(data);
 			exit(EXIT_FAILURE);
 		}

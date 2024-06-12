@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lromero- <lromero-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 17:49:16 by lromero-          #+#    #+#             */
-/*   Updated: 2024/06/08 17:50:13 by lromero-         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:30:30 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,21 @@ static int	ft_load_walls(t_scr *scr)
 void	ft_launch_window(t_data *data)
 {
 	data->scr->ray = malloc(sizeof(t_ray));
-    data->scr->mlx = mlx_init(SCREENWIDTH, SCREENHEIGHT, "cub3D", false);
-    data->scr->view = mlx_new_image(data->scr->mlx, SCREENWIDTH, SCREENHEIGHT);
-    if (!data->scr->ray || !data->scr->mlx || !data->scr->view)
-    {
-    	ft_printf_fd(STDERR_FILENO, RED "Error\nView load failed\n" RST);
-    	ft_free_data(data);
-    	exit(EXIT_FAILURE);
-    }
-    mlx_image_to_window(data->scr->mlx, data->scr->view, 0, 0);
-    data->scr->fovangle = FOV / (double)SCREENWIDTH;
+	data->scr->mlx = mlx_init(SCREENWIDTH, SCREENHEIGHT, "cub3D", false);
+	data->scr->view = mlx_new_image(data->scr->mlx, SCREENWIDTH, SCREENHEIGHT);
+	if (!data->scr->ray || !data->scr->mlx || !data->scr->view)
+	{
+		ft_printf_fd(STDERR_FILENO, RED "Error\nView load failed\n" RST);
+		ft_free_data(data);
+		exit(EXIT_FAILURE);
+	}
+	mlx_image_to_window(data->scr->mlx, data->scr->view, 0, 0);
+	data->scr->fovangle = FOV / (double)SCREENWIDTH;
 	if (ft_load_walls(data->scr))
 	{
 		ft_printf_fd(STDERR_FILENO, RED "Error\nWall img load failed\n" RST);
-    	ft_free_data(data);
-    	exit(EXIT_FAILURE);
+		ft_free_data(data);
+		exit(EXIT_FAILURE);
 	}
 }
 
@@ -98,9 +98,9 @@ void	ft_key_hook(void *param)
 		y -= 1;
 	if (mlx_is_key_down(data->scr->mlx, MLX_KEY_D))
 		x += 1;
-	if(mlx_is_key_down(data->scr->mlx, MLX_KEY_LEFT))
+	if (mlx_is_key_down(data->scr->mlx, MLX_KEY_LEFT))
 		angle += TURNSPEED * data->scr->mlx->delta_time;
-	if(mlx_is_key_down(data->scr->mlx, MLX_KEY_RIGHT))
+	if (mlx_is_key_down(data->scr->mlx, MLX_KEY_RIGHT))
 		angle -= TURNSPEED * data->scr->mlx->delta_time;
 	ft_turn_angle(angle, &data->dir[1], &data->dir[0]);
 	ft_movement(data, x, y);

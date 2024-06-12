@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lromero- <lromero-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 15:18:50 by lromero-          #+#    #+#             */
-/*   Updated: 2024/06/07 15:51:15 by lromero-         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:42:49 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,15 @@ static void	ft_move_collision(t_data *data, double *xmov, double *ymov)
 	}
 	else
 	{
-		if (data->map[(int)data->py][testx] == '1'
-			|| (*xmov < 0 && data->map[(int)data->py][(int)data->px - 1] == '1')
-			|| (*xmov > 0 && data->map[(int)data->py][(int)data->px + 1] == '1'))
+		if (data->map[(int)data->py][testx] == '1' || (*xmov < 0
+				&& data->map[(int)data->py][(int)data->px - 1] == '1')
+			|| (*xmov > 0 && data->map[(int)data->py][(int)data->px
+				+ 1] == '1'))
 			*xmov = ft_limit_move(data->px, *xmov);
-		if (data->map[testy][(int)data->px] == '1'
-			|| (*ymov < 0 && data->map[(int)data->py - 1][(int)data->px] == '1')
-			|| (*ymov > 0 && data->map[(int)data->py + 1][(int)data->px] == '1'))
+		if (data->map[testy][(int)data->px] == '1' || (*ymov < 0
+				&& data->map[(int)data->py - 1][(int)data->px] == '1')
+			|| (*ymov > 0 && data->map[(int)data->py
+				+ 1][(int)data->px] == '1'))
 			*ymov = ft_limit_move(data->py, *ymov);
 	}
 }
@@ -73,9 +75,8 @@ double	ft_move_angle(double *dirx, double *diry, double x, double y)
 		else
 			angle += M_PI / 2;
 	}
-	else	
-		if (y < 0)
-			angle += M_PI;
+	else if (y < 0)
+		angle += M_PI;
 	if (angle)
 		ft_turn_angle(angle, dirx, diry);
 	return (angle);
