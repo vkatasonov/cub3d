@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 13:12:37 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/30 19:05:26 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:52:07 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	ft_read_file(char *file_name, t_data *data)
 	data->content = ft_split(tmp, '\n');
 	free(tmp);
 	ft_extract_data(data);
-	ft_print_extracted(data);
 	close(fd);
 }
 

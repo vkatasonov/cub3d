@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:19:20 by lromero-          #+#    #+#             */
-/*   Updated: 2024/06/12 17:43:25 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:49:41 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ static int	ft_intersection(t_ray *ray, double px)
 	x = fabs(px - x);
 	if (fabs(ray->yjump) < fabs(ray->xjump))
 	{
-
 		if ((fabs(ray->xjump) < 1 && !fmod(ray->x, 1))
 			|| (fmod(ray->x, 1) && fmod(ray->y, 1)
 				&& x > fabs(ray->xjump)))
