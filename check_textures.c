@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   check_textures.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lromero- <lromero-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 11:48:07 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/11 12:41:44 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/06/06 21:28:38 by lromero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
 /**
- * @brief			Function to check if the textures are valid
- * 					and load them to the data struct.
- * 					Textures are saved to the data->scr->texture array.
- * 
- * @param data		Pointer to the data struct
- * @warning			DON'T FORGET TO FREE THE TEXTURES (mlx_destroy_texture)
+ * @brief				Function to check if the textures are valid
+ * 						and load them to the data struct.
+ * 						Textures are saved to the data->scr->texture array.
+ * 	
+ * @param data			Pointer to the data struct
+ * @warning				DON'T FORGET TO FREE THE TEXTURES (mlx_destroy_texture)
  */
 void	ft_check_textures(t_data *data)
 {
@@ -33,8 +33,12 @@ void	ft_check_textures(t_data *data)
 	while (++i < 4)
 	{
 		if (!data->scr->texture[i])
-			exit (ft_printf_fd(STDERR_FILENO,
+		{
+			ft_printf_fd(STDERR_FILENO,
 					RED "Error\nInvalid texture path: %s\n" RST,
-					data->scr->texture[i]));
+					data->scr->texture[i]);
+			ft_free_data(data);
+			exit(EXIT_FAILURE);
+		}
 	}
 }

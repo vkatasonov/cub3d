@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:10:21 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/11 21:27:31 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/06/12 15:37:25 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,18 @@ int	ft_get_color_values(int *value, char **color, char *tmp)
 }
 
 /**
- * @brief 			Function to set the color data 
- * 					to the data struct.	It checks if 
- * 					the color data is already set 
- * 					(data->f[0] and data->c[0] is not set to 1)
- * 					and, if it's not, it sets the color data.
- * 					Helper function for ft_find_color.
- * 
- * @param data		Pointer to the data struct
- * @param tmp		Pointer to the line read from the
- * 					file to the data->content array
- * @param i 		1 for F color, 2 for C color
- * @return int 		1 if the color data was set before, 0 otherwise
+ * @brief 				Function to set the color data 
+ * 						to the data struct.	It checks if 
+ * 						the color data is already set 
+ * 						(data->f[0] and data->c[0] is not set to 1)
+ * 						and, if it's not, it sets the color data.
+ * 						Helper function for ft_find_color.
+ * 	
+ * @param data			Pointer to the data struct
+ * @param tmp			Pointer to the line read from the
+ * 						file to the data->content array
+ * @param i 			1 for F color, 2 for C color
+ * @return int 			1 if the color data was set before, 0 otherwise
  */
 int	ft_set_color(t_data *data, char *tmp, int i)
 {
@@ -82,24 +82,32 @@ int	ft_set_color(t_data *data, char *tmp, int i)
 	tmp++;
 	tmp = ft_skip_spaces(tmp);
 	color = ft_split(tmp, ',');
+	if (ft_skip_spaces(color[0]) == NULL || *ft_skip_spaces(color[0]) == '\0'
+		|| ft_skip_spaces(color[1]) == NULL || *ft_skip_spaces(color[1]) == '\0'
+		|| ft_skip_spaces(color[2]) == NULL || *ft_skip_spaces(color[2]) == '\0')
+	{
+		ft_charpp_free(color);
+		exit(ft_printf_fd(STDERR_FILENO,
+				RED "Error\nInvalid color data: %s\n"RST, tmp));
+	}
 	ft_get_color_values(value, color, tmp);
 	return (0);
 }
 
 /**
- * @brief 			Function to find color data 
- * 					in the data->content array.
- *					It checks if the color data 
- 					is already set (data->f[0]
-					and data->c[0] is not set to 1)
-					and, if it's not, it sets the color data.
-					Helper function for ft_extract_color.
- * 
- * @param data		Pointer to the main data struct.
- * @param tmp		Pointer to the line read from the
- * 					file to the data->content array.	
- * @return int		0 if the color data is set in this iteration,
- * 					1 if the color data was set before.
+ * @brief 				Function to find color data 
+ * 						in the data->content array.
+ *						It checks if the color data 
+ 						is already set (data->f[0]
+						and data->c[0] is not set to 1)
+						and, if it's not, it sets the color data.
+						Helper function for ft_extract_color.
+ * 	
+ * @param data			Pointer to the main data struct.
+ * @param tmp			Pointer to the line read from the
+ * 						file to the data->content array.	
+ * @return int			0 if the color data is set in this iteration,
+ * 						1 if the color data was set before.
  */
 int	ft_find_color(t_data *data, char *tmp)
 {
@@ -113,16 +121,16 @@ int	ft_find_color(t_data *data, char *tmp)
 }
 
 /**
- * @brief 			Function to extract color data 
- * 					from the data->content array.
- * 					It checks if the color data
- * 					(f and c members) is already 
- * 					set and if it's not it sets 
- * 					the color data. If the color
- * 					data is already set it exits 
- * 					the program with an error message.
- *	
- * @param data		Pointer to the main data struct. 			
+ * @brief 				Function to extract color data 
+ * 						from the data->content array.
+ * 						It checks if the color data
+ * 						(f and c members) is already 
+ * 						set and if it's not it sets 
+ * 						the color data. If the color
+ * 						data is already set it exits 
+ * 						the program with an error message.
+ *		
+ * @param data			Pointer to the main data struct. 			
  */
 void	ft_extract_color(t_data *data)
 {
@@ -150,12 +158,12 @@ void	ft_extract_color(t_data *data)
 }
 
 /**
- * @brief 			Function checks if data->f[0] and data->c[0] flags
- * 					are set to 1. If not, it exits the program with an error
- * 					message.
- * 					Helper function for ft_extract_color.
- * 
- * @param data		Pointer to the main data struct.
+ * @brief 				Function checks if data->f[0] and data->c[0] flags
+ * 						are set to 1. If not, it exits the program with an error
+ * 						message.
+ * 						Helper function for ft_extract_color.
+ * 	
+ * @param data			Pointer to the main data struct.
  */
 void	ft_color_not_found(t_data *data)
 {

@@ -1,14 +1,14 @@
-
-
+NO textures/texture_walls/Black.png 
+WE textures/texture_walls/White.png
+SO textures/texture_walls/Blue.png
+EA textures/texture_walls/Yellow.png
 F 175, 143, 133  
 C 153, 204, 255
-NO textures/imgs/wall1 - 256x256.png 
-SO textures/imgs/wall2 - 256x256.png
-WE textures/imgs/wall3 - 256x256.png
-EA textures/imgs/wall4 - 256x256.png
+
+
 
         1111111111111111111111111
-        1000000000110000000000001
+        1000000000110000000000001 
         1011000001110000000000001
         1001000000000000000000001111111111111
         1111111111111011000001110000000000001

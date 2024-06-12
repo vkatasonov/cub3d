@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 23:22:28 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/16 18:12:26 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:12:16 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ void	ft_clean_scr(t_data *data)
 	{
 		if (data->scr->mlx)
 			mlx_terminate(data->scr->mlx);
-		if (data->scr->win)
-			mlx_close_window(data->scr->win);
+		if (data->scr->ray)
+			free(data->scr->ray);
 		ft_destroy_textures(data);
-		ft_destroy_images(data);
+		//ft_destroy_images(data);
 		free(data->scr);
 	}
 }
@@ -104,4 +104,19 @@ void	ft_destroy_textures(t_data *data)
 				mlx_delete_texture(data->scr->texture[i]);
 		}
 	}
+}
+
+/**
+ * @brief 				Function to save function lines in the whole project
+ * 						(god bless the norm) which frees the data struct
+ * 						and exits the program with an error message.
+ * 	
+ * @param data 			Pointer to the main data struct
+ * @param error 		Error message to print
+ * 
+ */
+void	ft_free_and_exit(t_data *data, char *error)
+{
+	ft_free_data(data);
+	exit(ft_printf_fd(STDERR_FILENO, RED "Error\n%s\n"RST, error));
 }
