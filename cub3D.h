@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lromero- <lromero-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:47:37 by vkatason          #+#    #+#             */
-/*   Updated: 2024/05/30 19:07:14 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/06/07 15:55:20 by lromero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,12 @@
 # define CYAN "\033[1;36m"    /* Bold Cyan */
 # define WHITE "\033[1;37m"   /* Bold White */
 
+# define SCREENWIDTH 1420
+# define SCREENHEIGHT 1080
+# define FOV 1.0
+# define TURNSPEED 3.1415
+# define MOVESPEED 3
+
 /**
  * @param px 		corresponds to player position on the x axis in the middle of the block
  * @param py 		corresponds to player position on the y axis in the middle of the block
@@ -50,12 +56,25 @@
  * 					West:	[0, -1]
 */
 
+typedef struct s_ray
+{
+	double	x;
+	double	y;
+	double	dx;
+	double	dy;
+	double	xjump;
+	double	yjump;
+	int		hitside;
+}	t_ray;
+
 typedef struct s_scr
 {
-	void			*mlx;
-	void			*win;
+	mlx_t			*mlx;
+	mlx_image_t		*view;
 	mlx_image_t		*img[4];
 	mlx_texture_t	*texture[4];
+	t_ray			*ray;
+	double			fovangle;
 }					t_scr;
 
 typedef struct s_data
@@ -108,6 +127,15 @@ void	ft_check_map(t_data *data);
 void	ft_copy_map(t_data *data);
 void	ft_get_player_position(t_data *data);
 void	ft_check_player_direction(t_data *data, char c);
+void	ft_launch_window(t_data *data);
+void	ft_draw_hook(void *param);
+void  ft_calc_ray(t_data *data, double angle);
+void	ft_ray_collision(t_ray *ray, double px, char **map);
+void	ft_draw_column(t_data *data, int x, double angle);
+void	ft_turn_angle(double angle, double *xvector, double *yvector);
+int 	ft_get_rgba(int r, int g, int b, int a);
+void	ft_key_hook(void *param);
+void	ft_movement(t_data *data, double xmov, double ymov);
 void	ft_flood_fill(t_data *data, int x, int y);
 void	ft_check_flood_fill(t_data *data);
 

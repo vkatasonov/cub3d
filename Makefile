@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+         #
+#    By: lromero- <lromero-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/14 15:51:14 by vkatason          #+#    #+#              #
-#    Updated: 2024/05/30 19:12:50 by vkatason         ###   ########.fr        #
+#    Updated: 2024/06/07 15:42:59 by lromero-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,9 @@ CC = clang -g
 CLEAN = rm -Rf
 LIBFT = libft
 MLX42 = MLX42
-SRC = 	check_textures.c \
-		cleanup.c \
+SRC = cast_ray.c \	
+    check_textures.c \
+    cleanup.c \
 		copy_map.c \
 		extract_color.c \
 		extract_data_from_context.c \
@@ -29,8 +30,12 @@ SRC = 	check_textures.c \
 		init_checks.c \
 		main.c \
 		map_flood_fill.c \
+    movement.c \
 		printed_checks.c \
-		read_file.c
+		ray_collision.c \
+    raycasting_utils.c
+    read_file.c \
+		window.c \
 		
 OBJS := $(SRC:.c=.o)
 
