@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 10:35:46 by vkatason          #+#    #+#             */
-/*   Updated: 2024/04/23 19:18:28 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/06/13 14:56:00 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,13 @@
  * @param s1 	The destination string.
  * @param s2 	The source string.
  * @param n 	The maximum number of characters to concatenate.
- * @return 		The pointer to the destination string after concatenation with a `\\0`.
+ * @return 		The pointer to the destination string 
+ * 				after concatenation with a `\\0`.
  * @var i 		An index to iterate through the destination string.
  * @var j 		An index to iterate through the source string.
  * @note		The function assumes that the destination string
- * 				is large enough to accommodate the concatenated string.
+ * 				is large enough to accommodate 
+ * 				the concatenated string.
  * 				Doesn't check for NULL pointers.
  */
 char	*ft_strncat(char *s1, const char *s2, size_t n)

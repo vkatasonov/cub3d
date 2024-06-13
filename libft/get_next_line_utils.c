@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 10:53:54 by vkatason          #+#    #+#             */
-/*   Updated: 2024/04/23 21:03:18 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/06/13 14:56:37 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,7 @@ char	*gnl_strjoin(char *s1, char *s2)
  */
 char	*gnl_strchr(char *s, int c)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	if (s == NULL)

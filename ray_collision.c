@@ -6,12 +6,22 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:19:20 by lromero-          #+#    #+#             */
-/*   Updated: 2024/06/12 17:49:41 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/06/13 15:29:17 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
+/**
+ * @brief 			Function to calculate the next square
+ * 					along the ray.
+ * 
+ * @param pos 		The position of the ray.
+ * @param dir 		The direction of the ray.
+ * @param r 		The ratio of the ray.
+ * @param dir2 		The direction of the ray.
+ * @return double 	The next square along the ray.
+ */
 static double	ft_next_square(double pos, double dir, double r, double dir2)
 {
 	double	next_line;
@@ -28,6 +38,13 @@ static double	ft_next_square(double pos, double dir, double r, double dir2)
 	return (side * r);
 }
 
+/**
+ * @brief 			Function to move the ray to the next line.
+ * 
+ * @param ray_pos	The position of the ray.
+ * @param dir 		The direction of the ray.
+ * @return double 	The position of the ray on the next line.
+ */
 static double	ft_move_to_line(double ray_pos, double dir)
 {
 	double	end_pos;
@@ -40,6 +57,13 @@ static double	ft_move_to_line(double ray_pos, double dir)
 	return (end_pos);
 }
 
+/**
+ * @brief 			Function to check if the ray intersects
+ * 
+ * @param ray		The ray to check.
+ * @param px 		The position of the ray.
+ * @return int 		1 if the ray intersects, 0 otherwise.
+ */
 static int	ft_intersection(t_ray *ray, double px)
 {
 	double	x;
@@ -64,6 +88,14 @@ static int	ft_intersection(t_ray *ray, double px)
 	return (0);
 }
 
+/**
+ * @brief 			Function to check if the ray hits the wall.
+ * 
+ * @param ray		The ray to check.
+ * @param flag 		The flag to check the direction.
+ * @param map 		The map to check.
+ * @return int 		1 if the ray hits the wall, 0 otherwise.
+ */
 static int	ft_check_hit(t_ray *ray, int flag, char **map)
 {
 	double	y;
@@ -90,6 +122,13 @@ static int	ft_check_hit(t_ray *ray, int flag, char **map)
 	return (0);
 }
 
+/**
+ * @brief 			Function to calculate the ray collision.
+ * 
+ * @param ray 		The ray to calculate.
+ * @param px 		The position of the ray.
+ * @param map 		The map to check.
+ */
 void	ft_ray_collision(t_ray *ray, double px, char **map)
 {
 	int		hit;

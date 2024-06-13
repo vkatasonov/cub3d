@@ -6,7 +6,7 @@
 #    By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/14 15:51:14 by vkatason          #+#    #+#              #
-#    Updated: 2024/06/12 13:08:42 by vkatason         ###   ########.fr        #
+#    Updated: 2024/06/13 15:20:35 by vkatason         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,9 +55,9 @@ DEFAULT	:= \033[0m
 all: libftmake mlx42make $(NAME)
 
 $(NAME): $(CUB3DLIB)
-# --------- Para el campus ----------
+# -------- Linux ---------
 	@$(CC) $(CFLAGS) $(CUB3DLIB) $(LIBFT)/libft.a $(MLX42)/libmlx42.a -ldl -lglfw -pthread -lm -o $(NAME)
-# -------- Para uso en casa --------
+# -------- MacOS --------
 #@$(CC) $(CFLAGS) $(CUB3DLIB) $(LIBFT)/libft.a $(MLX42)/libmlx42.a -lm -I include -lglfw -L"/opt/homebrew/Cellar/glfw/3.4/lib/" -o $(NAME)
 	@echo "$(GREEN)The app $(NAME) was successfully compiled. $(DEFAULT)"
 
@@ -82,9 +82,10 @@ fclean: mlx42fclean libftfclean
 
 re: fclean all
 
+#-------- Norminette --------
 norma:
 	@norminette $(SRC) cub3D.h
-
+#-------- MLX42 --------
 mlx42make:
 	@make -C $(MLX42)
 mlx42clean:
@@ -93,6 +94,7 @@ mlx42fclean:
 	@make fclean -C $(MLX42)
 mlx42re: libftclean libftmake
 
+#-------- LIBFT --------
 libftmake:
 	@make -C $(LIBFT)
 libftclean:

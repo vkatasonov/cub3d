@@ -6,12 +6,20 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 15:18:50 by lromero-          #+#    #+#             */
-/*   Updated: 2024/06/12 17:42:49 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/06/13 15:25:29 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
+/**
+ * @brief 			Function to limit the movement
+ * 					of the player.
+ * 
+ * @param pos 		The position of the player.
+ * @param mov 		The movement of the player.
+ * @return double 	The limited movement of the player.
+ */
 static double	ft_limit_move(double pos, double mov)
 {
 	if (floor(pos) != floor(pos + mov))
@@ -28,6 +36,16 @@ static double	ft_limit_move(double pos, double mov)
 	return (mov);
 }
 
+/**
+ * @brief 			Function to move the player
+ * 					and check for collisions.
+ * 
+ * @param data 		The main data structure.
+ * @param xmov 		The x movement of the player.
+ * @param ymov 		The y movement of the player.
+ * @var testx		The x position of the player.
+ * @var testy		The y position of the player.
+ */
 static void	ft_move_collision(t_data *data, double *xmov, double *ymov)
 {
 	int	testx;
@@ -55,6 +73,15 @@ static void	ft_move_collision(t_data *data, double *xmov, double *ymov)
 	}
 }
 
+/**
+ * @brief 			Function to turn the angle of the player.
+ * 
+ * @param dirx 		The x direction of the player.
+ * @param diry 		The y direction of the player.
+ * @param x 		The x position of the player.
+ * @param y 		The y position of the player.
+ * @return double 	The angle of the player.
+ */
 double	ft_move_angle(double *dirx, double *diry, double x, double y)
 {
 	double	angle;
@@ -82,6 +109,14 @@ double	ft_move_angle(double *dirx, double *diry, double x, double y)
 	return (angle);
 }
 
+/**
+ * @brief 			Function to move the player.
+ * 
+ * @param data 		The main data structure.
+ * @param xmov 		The x movement of the player.
+ * @param ymov		The y movement of the player.
+ * 
+ */
 void	ft_movement(t_data *data, double xmov, double ymov)
 {
 	double	length;

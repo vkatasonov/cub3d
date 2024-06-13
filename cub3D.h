@@ -6,7 +6,7 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:47:37 by vkatason          #+#    #+#             */
-/*   Updated: 2024/06/12 17:50:03 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/06/13 15:18:33 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,18 @@
 # define MOVESPEED 3
 
 /**
- * @param px 		corresponds to player position 
- * 					on the x axis in the middle of the block
- * @param py 		corresponds to player position 
- * 					on the y axis in the middle of the block
- * @example 		(0,0) corresponds to the upper-left corner of the map
- * @param dir 		holds the direction the player is facing (y, x)
- * @example 		North:	[-1, 0]
- * 					South:	[1, 0]
- * 					East:	[0, 1]
- * 					West:	[0, -1]
-*/
-
+ * @brief 				Structure to hold the mlx struct
+ * 						and the view image.
+ * 
+ * @param x 			Position on the x axis
+ * @param y 			Position on the y axis
+ * @param dx 			Direction on the x axis
+ * @param dy 			Direction on the y axis
+ * @param xjump 		Increment on the x axis
+ * @param yjump 		Increment on the y axis
+ * @param hitside 		Flag to check if the ray 
+ * 						hits the side
+ */
 typedef struct s_ray
 {
 	double	x;
@@ -69,6 +69,17 @@ typedef struct s_ray
 	int		hitside;
 }	t_ray;
 
+/**
+ * @brief 				Structure to hold the mlx struct
+ * 						and the view image.
+ *
+ * @param mlx 			Pointer to the mlx struct
+ * @param view 			Pointer to the view image
+ * @param img 			Array of pointers to the images
+ * @param texture 		Array of pointers to the textures
+ * @param ray 			Pointer to the ray struct
+ * @param fovangle 		Field of view angle in radians
+ */
 typedef struct s_scr
 {
 	mlx_t			*mlx;
@@ -79,6 +90,37 @@ typedef struct s_scr
 	double			fovangle;
 }					t_scr;
 
+/**
+ * @brief 				Structure to hold the main data
+ * 						used in the program.
+ * 
+ * @param content 		holds the content of the file
+ * @param map 			holds the map
+ * @param mapcopy 		holds the copy of the map
+ * @param no 			holds the path to the north texture
+ * @param so 			holds the path to the south texture
+ * @param we 			holds the path to the west texture
+ * @param ea 			holds the path to the east texture
+ * @param mpx 			corresponds to player position
+ * 						on the x axis in the middle of the block
+ * @param mpy 			corresponds to player position
+ * 						on the y axis in the middle of the block
+ * @param px 			corresponds to player position
+ * 						on the x axis
+ * @param py 			corresponds to player position 
+ * 						on the y axis 
+ * @example 			(0,0) corresponds to the upper-left corner of the map
+ * @param dir 			holds the direction the player is facing (y, x)
+ * @example 			North:	[-1, 0]
+ * 						South:	[1, 0]
+ * 						East:	[0, 1]
+ * 						West:	[0, -1]
+ * @param f 			holds the floor color values
+ * @param c 			holds the ceiling color values
+ * @param map_height 	holds the height of the map
+ * @param map_width 	holds the width of the map
+ * @param scr 			holds the screen data
+*/
 typedef struct s_data
 {
 	char			**content;
@@ -157,7 +199,5 @@ void	ft_clean_scr(t_data *data);
 void	ft_destroy_images(t_data *data);
 void	ft_destroy_textures(t_data *data);
 void	ft_free_and_exit(t_data *data, char *error);
-
-/* FUNCTIONS */
 
 #endif

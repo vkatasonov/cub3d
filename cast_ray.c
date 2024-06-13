@@ -6,12 +6,18 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:09:44 by lromero-          #+#    #+#             */
-/*   Updated: 2024/06/12 17:35:34 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/06/13 15:08:52 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
+/**
+ * @brief			Function calculates the ray for the given angle.
+ * 
+ * @param data		The structure main data.
+ * @param angle 	The angle at which to calculate the ray.
+ */
 void	ft_calc_ray(t_data *data, double angle)
 {
 	data->scr->ray->x = data->px;
@@ -22,6 +28,20 @@ void	ft_calc_ray(t_data *data, double angle)
 	data->scr->ray->dx *= -1;
 }
 
+/**
+ * @brief			Draws a wall on the screen 
+ * 					at the specified coordinates.
+ *
+ * @param data		The main data structure.
+ * @param x 		The x-coordinate of the pixel to draw.
+ * @param y 		The y-coordinate of the pixel to draw.
+ * @param h 		The height of the wall.
+ * @var pixel		The pixel to draw.
+ * @var i			The index of the pixel in the image.
+ * @var impact		The impact of the pixel on the wall.
+ * @var color		The color of the pixel.
+ * @var n			The side of the wall.
+ */
 static void	ft_draw_wall(t_data *data, int x, int y, double h)
 {
 	uint8_t		*pixel;
@@ -47,6 +67,19 @@ static void	ft_draw_wall(t_data *data, int x, int y, double h)
 	mlx_put_pixel(data->scr->view, x, y, color);
 }
 
+/**
+ * @brief 			Draws a column on the screen 
+ * 					at the specified x-coordinate.
+ * 
+ * @param data 		The main data structure.
+ * @param x 		The x-coordinate of the column to draw.
+ * @param angle		The angle of the column.
+ * @var xdist		The distance between the player and the column.
+ * @var ydist		The distance between the player and the column.
+ * @var wallh		The height of the wall.
+ * @var start		The starting y-coordinate of the wall.
+ * @var i			The current y-coordinate of the wall.	
+ */
 void	ft_draw_column(t_data *data, int x, double angle)
 {
 	double	xdist;

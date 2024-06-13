@@ -6,12 +6,19 @@
 /*   By: vkatason <vkatason@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 17:49:16 by lromero-          #+#    #+#             */
-/*   Updated: 2024/06/12 17:30:30 by vkatason         ###   ########.fr       */
+/*   Updated: 2024/06/13 15:36:13 by vkatason         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
+/**
+ * @brief 			Function to load the walls
+ * 					textures.
+ * 
+ * @param scr 		Pointer to the screen struct.
+ * @return int 		1 if the wall img load failed.
+ */
 static int	ft_load_walls(t_scr *scr)
 {
 	int	i;
@@ -27,6 +34,13 @@ static int	ft_load_walls(t_scr *scr)
 	return (0);
 }
 
+/**
+ * @brief 			Function to launch the window.
+ * 					Initializes the mlx, the view and the ray.
+ * 					Also loads the wall textures.
+ * 					Exits if the wall textures failed to load.
+ * @param data 		Pointer to the main data struct.
+ */
 void	ft_launch_window(t_data *data)
 {
 	data->scr->ray = malloc(sizeof(t_ray));
@@ -48,6 +62,17 @@ void	ft_launch_window(t_data *data)
 	}
 }
 
+/**
+ * @brief 			Function to draw the hook.
+ * 					Loops through the screen width
+ * 					and draws the columns.
+ * 
+ * @param param 	Pointer to the main data struct.
+ * @var data 		Pointer to the main data struct.
+ * @var angle 		The angle of the ray.
+ * @var i 			The index of the column.
+ * @var SCREENWIDTH The width of the screen.
+ */
 void	ft_draw_hook(void *param)
 {
 	t_data	*data;
@@ -77,6 +102,19 @@ void	ft_draw_hook(void *param)
 	}
 }
 
+/**
+ * @brief 				Function to hold the key hook.
+ * 						Checks if the keys are pressed and
+ * 						moves the player accordingly.
+ * 						Also checks if the escape key is pressed
+ * 						and closes the window.
+ * 
+ * @var data 			Pointer to the main data struct.
+ * @var angle 			The angle to turn.
+ * @var x 				The x-coordinate to move.
+ * @var y 				The y-coordinate to move.
+ * @var TURNSPEED 		The speed to turn.
+ */
 void	ft_key_hook(void *param)
 {
 	t_data	*data;
